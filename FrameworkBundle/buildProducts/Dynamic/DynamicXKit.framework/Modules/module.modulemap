@@ -1,6 +1,0 @@
-framework module DynamicXKit {
-  umbrella header "DynamicXKit.h"
-
-  export *
-  module * { export * }
-}
