@@ -1,0 +1,6 @@
+framework module XKit {
+  umbrella header "XKit.h"
+
+  export *
+  module * { export * }
+}
