@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *leftSubLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightSubLabel;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 

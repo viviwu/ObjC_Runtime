@@ -22,10 +22,11 @@ FOUNDATION_EXPORT const unsigned char XKitVersionString[];
 #import <XKit/XObject.h>
 
 #import <XKit/UIImage+X.h>
+#import <XKit/UIView+X.h>
 
+#import <XKit/NSBundle+X.h>
 #import <XKit/NSString+X.h> 
 #import <XKit/NSArray+X.h>
 #import <XKit/NSDictionary+X.h>
 
-#import <XKit/XibView.h>
 #import <XKit/XGridView.h>

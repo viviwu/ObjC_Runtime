@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D61CFE922C309F000FB5281 /* XDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61CFE822C309F000FB5281 /* XDrawView.m */; };
+		0D61CFEA22C309F000FB5281 /* XDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61CFE822C309F000FB5281 /* XDrawView.m */; };
 		0DB7ED7C22C067A9004466D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED7B22C067A9004466D6 /* AppDelegate.m */; };
 		0DB7ED7F22C067A9004466D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED7E22C067A9004466D6 /* ViewController.m */; };
 		0DB7ED8222C067A9004466D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8022C067A9004466D6 /* Main.storyboard */; };
@@ -23,7 +25,6 @@
 		0DB7EDC422C06BC5004466D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8822C067AA004466D6 /* LaunchScreen.storyboard */; };
 		0DB7EDC522C06BC5004466D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8622C067AA004466D6 /* Assets.xcassets */; };
 		0DB7EDC622C06BC5004466D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8022C067A9004466D6 /* Main.storyboard */; };
-		0DB7EE5422C0C52F004466D6 /* XBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE2122C0AEFC004466D6 /* XBundle.bundle */; };
 		0DB7EE5722C0C58A004466D6 /* XibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE2D22C0B27A004466D6 /* XibView.xib */; };
 		0DB7EE5822C0C58D004466D6 /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE3122C0B2C2004466D6 /* photos@2x.png */; };
 		0DB7EE5A22C0C5E5004466D6 /* XAppD-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE5922C0C5E5004466D6 /* XAppD-Info.plist */; };
@@ -31,9 +32,32 @@
 		0DB7EE6022C0C75E004466D6 /* DynamicXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7EE5B22C0C6EA004466D6 /* DynamicXKit.framework */; };
 		0DB7EE6922C0C9B4004466D6 /* XKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7EE6822C0C9B3004466D6 /* XKit.framework */; };
 		0DB7EE6B22C0C9BE004466D6 /* XKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7EE6822C0C9B3004466D6 /* XKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0DB7EE8A22C1A690004466D6 /* XBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE8922C1A690004466D6 /* XBundle.bundle */; };
+		0DB7EE8C22C1ABBA004466D6 /* XGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE8B22C1ABBA004466D6 /* XGridView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0D61D03A22C3623500FB5281 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D61D03422C3623400FB5281 /* XKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0DB7ED2B22C05986004466D6;
+			remoteInfo = XKit;
+		};
+		0D61D03C22C3623500FB5281 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D61D03422C3623400FB5281 /* XKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0DB7EDEB22C06C4B004466D6;
+			remoteInfo = DynamicXKit;
+		};
+		0D61D03E22C3623500FB5281 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D61D03422C3623400FB5281 /* XKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0DB7EE0B22C09F70004466D6;
+			remoteInfo = XBundle;
+		};
 		0DB7ED9322C067AA004466D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0DB7ED6F22C067A9004466D6 /* Project object */;
@@ -76,6 +100,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D61CFE722C309EF00FB5281 /* XDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDrawView.h; sourceTree = "<group>"; };
+		0D61CFE822C309F000FB5281 /* XDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDrawView.m; sourceTree = "<group>"; };
+		0D61D03422C3623400FB5281 /* XKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XKit.xcodeproj; path = ../XKit/XKit.xcodeproj; sourceTree = "<group>"; };
 		0DB7ED7722C067A9004466D6 /* XApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB7ED7A22C067A9004466D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DB7ED7B22C067A9004466D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -94,12 +121,13 @@
 		0DB7EDA122C067AA004466D6 /* XAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XAppUITests.m; sourceTree = "<group>"; };
 		0DB7EDA322C067AA004466D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DB7EDCE22C06BC5004466D6 /* XAppD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XAppD.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0DB7EE2122C0AEFC004466D6 /* XBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XBundle.bundle; sourceTree = "<group>"; };
 		0DB7EE2D22C0B27A004466D6 /* XibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XibView.xib; sourceTree = "<group>"; };
 		0DB7EE3122C0B2C2004466D6 /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photos@2x.png"; sourceTree = "<group>"; };
 		0DB7EE5922C0C5E5004466D6 /* XAppD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "XAppD-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0DB7EE5B22C0C6EA004466D6 /* DynamicXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DynamicXKit.framework; path = ../buildProducts/Dynamic/DynamicXKit.framework; sourceTree = "<group>"; };
 		0DB7EE6822C0C9B3004466D6 /* XKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XKit.framework; path = ../buildProducts/Static/XKit.framework; sourceTree = "<group>"; };
+		0DB7EE8922C1A690004466D6 /* XBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = XBundle.bundle; path = ../buildProducts/Static/XBundle.bundle; sourceTree = "<group>"; };
+		0DB7EE8B22C1ABBA004466D6 /* XGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGridView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +164,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D61D03522C3623400FB5281 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D61D03B22C3623500FB5281 /* XKit.framework */,
+				0D61D03D22C3623500FB5281 /* DynamicXKit.framework */,
+				0D61D03F22C3623500FB5281 /* XBundle.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0DB7ED6E22C067A9004466D6 = {
 			isa = PBXGroup;
 			children = (
@@ -166,11 +204,12 @@
 				0DB7ED7B22C067A9004466D6 /* AppDelegate.m */,
 				0DB7ED7D22C067A9004466D6 /* ViewController.h */,
 				0DB7ED7E22C067A9004466D6 /* ViewController.m */,
+				0D61CFE722C309EF00FB5281 /* XDrawView.h */,
+				0D61CFE822C309F000FB5281 /* XDrawView.m */,
 				0DB7ED8022C067A9004466D6 /* Main.storyboard */,
 				0DB7ED8622C067AA004466D6 /* Assets.xcassets */,
 				0DB7ED8822C067AA004466D6 /* LaunchScreen.storyboard */,
 				0DB7ED8B22C067AA004466D6 /* Info.plist */,
-				0DB7EE2122C0AEFC004466D6 /* XBundle.bundle */,
 				0DB7ED8C22C067AA004466D6 /* main.m */,
 				0DB7ED8322C067A9004466D6 /* XApp.xcdatamodeld */,
 			);
@@ -198,6 +237,8 @@
 		0DB7EDAF22C068A7004466D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D61D03422C3623400FB5281 /* XKit.xcodeproj */,
+				0DB7EE8922C1A690004466D6 /* XBundle.bundle */,
 				0DB7EE6822C0C9B3004466D6 /* XKit.framework */,
 				0DB7EE5B22C0C6EA004466D6 /* DynamicXKit.framework */,
 			);
@@ -207,6 +248,7 @@
 		0DB7EE1A22C0A3A7004466D6 /* XAppD */ = {
 			isa = PBXGroup;
 			children = (
+				0DB7EE8B22C1ABBA004466D6 /* XGridView.xib */,
 				0DB7EE5922C0C5E5004466D6 /* XAppD-Info.plist */,
 				0DB7EE2D22C0B27A004466D6 /* XibView.xib */,
 				0DB7EE3122C0B2C2004466D6 /* photos@2x.png */,
@@ -323,6 +365,12 @@
 			mainGroup = 0DB7ED6E22C067A9004466D6;
 			productRefGroup = 0DB7ED7822C067A9004466D6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0D61D03522C3623400FB5281 /* Products */;
+					ProjectRef = 0D61D03422C3623400FB5281 /* XKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0DB7ED7622C067A9004466D6 /* XApp */,
@@ -333,14 +381,38 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		0D61D03B22C3623500FB5281 /* XKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XKit.framework;
+			remoteRef = 0D61D03A22C3623500FB5281 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0D61D03D22C3623500FB5281 /* DynamicXKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = DynamicXKit.framework;
+			remoteRef = 0D61D03C22C3623500FB5281 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0D61D03F22C3623500FB5281 /* XBundle.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = XBundle.bundle;
+			remoteRef = 0D61D03E22C3623500FB5281 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		0DB7ED7522C067A9004466D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DB7EE8A22C1A690004466D6 /* XBundle.bundle in Resources */,
 				0DB7ED8A22C067AA004466D6 /* LaunchScreen.storyboard in Resources */,
 				0DB7ED8722C067AA004466D6 /* Assets.xcassets in Resources */,
-				0DB7EE5422C0C52F004466D6 /* XBundle.bundle in Resources */,
 				0DB7ED8222C067A9004466D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +438,7 @@
 				0DB7EE5822C0C58D004466D6 /* photos@2x.png in Resources */,
 				0DB7EDC422C06BC5004466D6 /* LaunchScreen.storyboard in Resources */,
 				0DB7EDC522C06BC5004466D6 /* Assets.xcassets in Resources */,
+				0DB7EE8C22C1ABBA004466D6 /* XGridView.xib in Resources */,
 				0DB7EE5722C0C58A004466D6 /* XibView.xib in Resources */,
 				0DB7EE5A22C0C5E5004466D6 /* XAppD-Info.plist in Resources */,
 				0DB7EDC622C06BC5004466D6 /* Main.storyboard in Resources */,
@@ -383,6 +456,7 @@
 				0DB7ED8522C067A9004466D6 /* XApp.xcdatamodeld in Sources */,
 				0DB7ED8D22C067AA004466D6 /* main.m in Sources */,
 				0DB7ED7C22C067A9004466D6 /* AppDelegate.m in Sources */,
+				0D61CFE922C309F000FB5281 /* XDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +484,7 @@
 				0DB7EDBE22C06BC5004466D6 /* XApp.xcdatamodeld in Sources */,
 				0DB7EDBF22C06BC5004466D6 /* main.m in Sources */,
 				0DB7EDC022C06BC5004466D6 /* AppDelegate.m in Sources */,
+				0D61CFEA22C309F000FB5281 /* XDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

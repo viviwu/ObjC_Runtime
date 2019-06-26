@@ -18,7 +18,7 @@
     return  [[[NSBundle xBundle] loadNibNamed:name owner:nil options:nil] lastObject];
 }
 
-+ (UIImage *)bundleImageName:(NSString *)name {
++ (UIImage *)xImageNamed:(NSString *)name {
     return [UIImage imageNamed:name inBundle:[NSBundle xBundle] compatibleWithTraitCollection:nil];
 }
 

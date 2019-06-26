@@ -1,31 +1,33 @@
 //
-//  XibView.m
+//  XGridView.m
 //  XKit
 //
 //  Created by vivi wu on 2019/6/24.
 //  Copyright © 2019 vivi wu. All rights reserved.
 //
 
-#import "XibView.h"
-#import "NSBundle+X.h"
-//#import <XKitS/NSBundle+X.h>
+#import "XGridView.h"
 
-@implementation XibView
+#if BUNDLE_FLAG
+    #import "NSBundle+X.h"
+#endif
+
+@implementation XGridView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         NSArray *nib = nil;
-        UIImage *image = nil;
+#if BUNDLE_FLAG
+        nib = [NSBundle.xBundle loadNibNamed:@"XGridView" owner:self options:nil];
+#else
+        nib = [NSBundle.mainBundle loadNibNamed:@"XGridView" owner:self options:nil];
+#endif
         
-        nib = [NSBundle.xBundle loadNibNamed:@"XibView" owner:self options:nil];
-        //        image = [UIImage imageNamed:@"photos" inBundle:[NSBundle xBundle] compatibleWithTraitCollection:nil];
-        image = [NSBundle bundleImageName:@"photos"];
-         
         [[nib objectAtIndex:0] setFrame:frame];
         self = [nib objectAtIndex:0];
-        self.imageView.image = image;
+        
     }
     return self;
 }
@@ -33,7 +35,10 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    
+    self.layer.borderColor = UIColor.lightGrayColor.CGColor;
+    self.layer.borderWidth = 0.5;
+    self.layer.cornerRadius = 3;
+    self.clipsToBounds = YES;
 }
 
 /*

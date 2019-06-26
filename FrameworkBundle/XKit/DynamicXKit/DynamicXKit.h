@@ -29,5 +29,4 @@ FOUNDATION_EXPORT const unsigned char DynamicXKitVersionString[];
 #import <DynamicXKit/NSArray+X.h>
 #import <DynamicXKit/NSDictionary+X.h>
 
-#import <DynamicXKit/XibView.h>
 #import <DynamicXKit/XGridView.h>

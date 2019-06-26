@@ -20,7 +20,6 @@
 		0DB7ED5922C05C17004466D6 /* NSArray+X.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED5722C05C17004466D6 /* NSArray+X.m */; };
 		0DB7ED5C22C05CD1004466D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7ED5B22C05CD1004466D6 /* UIKit.framework */; };
 		0DB7ED5E22C05CD7004466D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7ED5D22C05CD7004466D6 /* Foundation.framework */; };
-		0DB7ED6A22C063C8004466D6 /* XibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED6922C063C8004466D6 /* XibView.xib */; };
 		0DB7ED6C22C06420004466D6 /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED6B22C06420004466D6 /* photos@2x.png */; };
 		0DB7EDB522C069C3004466D6 /* XDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED5122C05A87004466D6 /* XDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EDD222C06C4B004466D6 /* NSDictionary+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED5222C05B71004466D6 /* NSDictionary+X.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,29 +35,25 @@
 		0DB7EDE022C06C4B004466D6 /* NSArray+X.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED5722C05C17004466D6 /* NSArray+X.m */; };
 		0DB7EDE222C06C4B004466D6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7ED5B22C05CD1004466D6 /* UIKit.framework */; };
 		0DB7EDE322C06C4B004466D6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7ED5D22C05CD7004466D6 /* Foundation.framework */; };
-		0DB7EDE522C06C4B004466D6 /* XibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED6922C063C8004466D6 /* XibView.xib */; };
 		0DB7EDE622C06C4B004466D6 /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED6B22C06420004466D6 /* photos@2x.png */; };
 		0DB7EDFB22C09953004466D6 /* DynamicXKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EDFA22C09946004466D6 /* DynamicXKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EE1122C09FB2004466D6 /* photos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED6B22C06420004466D6 /* photos@2x.png */; };
-		0DB7EE1222C09FCF004466D6 /* XibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED6922C063C8004466D6 /* XibView.xib */; };
-		0DB7EE2622C0B113004466D6 /* XibView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED6522C0637C004466D6 /* XibView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DB7EE2822C0B119004466D6 /* XibView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED6522C0637C004466D6 /* XibView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DB7EE3422C0B568004466D6 /* XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE3322C0B568004466D6 /* XibView.m */; };
-		0DB7EE3822C0B5AC004466D6 /* XibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE3722C0B5AC004466D6 /* XibView.m */; };
 		0DB7EE4F22C0C2D4004466D6 /* DynamicXKit-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE4E22C0C2D4004466D6 /* DynamicXKit-Info.plist */; };
-		0DB7EE5222C0C3EC004466D6 /* NSBundle+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE1D22C0A885004466D6 /* NSBundle+X.h */; };
+		0DB7EE5222C0C3EC004466D6 /* NSBundle+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE1D22C0A885004466D6 /* NSBundle+X.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EE5322C0C3EC004466D6 /* NSBundle+X.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE1E22C0A885004466D6 /* NSBundle+X.m */; };
-		0DB7EE7022C0CAFA004466D6 /* XGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE6E22C0CAFA004466D6 /* XGridView.h */; };
+		0DB7EE7022C0CAFA004466D6 /* XGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE6E22C0CAFA004466D6 /* XGridView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EE7122C0CAFA004466D6 /* XGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE6F22C0CAFA004466D6 /* XGridView.m */; };
 		0DB7EE7322C0CB26004466D6 /* XGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE7222C0CB26004466D6 /* XGridView.xib */; };
-		0DB7EE7A22C0CD11004466D6 /* UIView+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE7822C0CD11004466D6 /* UIView+X.h */; };
+		0DB7EE7A22C0CD11004466D6 /* UIView+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE7822C0CD11004466D6 /* UIView+X.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EE7B22C0CD11004466D6 /* UIView+X.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE7922C0CD11004466D6 /* UIView+X.m */; };
-		0DB7EE7E22C0CD9A004466D6 /* XCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE7C22C0CD9A004466D6 /* XCollectionViewCell.h */; };
+		0DB7EE7E22C0CD9A004466D6 /* XCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE7C22C0CD9A004466D6 /* XCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EE7F22C0CD9A004466D6 /* XCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE7D22C0CD9A004466D6 /* XCollectionViewCell.m */; };
-		0DB7EE8222C0CDB6004466D6 /* XTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE8022C0CDB6004466D6 /* XTableViewCell.h */; };
+		0DB7EE8222C0CDB6004466D6 /* XTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE8022C0CDB6004466D6 /* XTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7EE8322C0CDB6004466D6 /* XTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE8122C0CDB6004466D6 /* XTableViewCell.m */; };
 		0DB7EE8422C0D852004466D6 /* XGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE7222C0CB26004466D6 /* XGridView.xib */; };
 		0DB7EE8522C0D85A004466D6 /* XGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE7222C0CB26004466D6 /* XGridView.xib */; };
+		0DB7EE8722C1A522004466D6 /* XGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7EE6E22C0CAFA004466D6 /* XGridView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0DB7EE8822C1A522004466D6 /* XGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EE6F22C0CAFA004466D6 /* XGridView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,8 +73,6 @@
 		0DB7ED5722C05C17004466D6 /* NSArray+X.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+X.m"; sourceTree = "<group>"; };
 		0DB7ED5B22C05CD1004466D6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0DB7ED5D22C05CD7004466D6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0DB7ED6522C0637C004466D6 /* XibView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XibView.h; sourceTree = "<group>"; };
-		0DB7ED6922C063C8004466D6 /* XibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XibView.xib; sourceTree = "<group>"; };
 		0DB7ED6B22C06420004466D6 /* photos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photos@2x.png"; sourceTree = "<group>"; };
 		0DB7EDEB22C06C4B004466D6 /* DynamicXKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicXKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB7EDFA22C09946004466D6 /* DynamicXKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicXKit.h; sourceTree = "<group>"; };
@@ -87,8 +80,6 @@
 		0DB7EE0D22C09F70004466D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DB7EE1D22C0A885004466D6 /* NSBundle+X.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+X.h"; sourceTree = "<group>"; };
 		0DB7EE1E22C0A885004466D6 /* NSBundle+X.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+X.m"; sourceTree = "<group>"; };
-		0DB7EE3322C0B568004466D6 /* XibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibView.m; sourceTree = "<group>"; };
-		0DB7EE3722C0B5AC004466D6 /* XibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XibView.m; sourceTree = "<group>"; };
 		0DB7EE4E22C0C2D4004466D6 /* DynamicXKit-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "DynamicXKit-Info.plist"; sourceTree = "<group>"; };
 		0DB7EE6E22C0CAFA004466D6 /* XGridView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGridView.h; sourceTree = "<group>"; };
 		0DB7EE6F22C0CAFA004466D6 /* XGridView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XGridView.m; sourceTree = "<group>"; };
@@ -162,10 +153,8 @@
 				0DB7EE8122C0CDB6004466D6 /* XTableViewCell.m */,
 				0DB7EE7C22C0CD9A004466D6 /* XCollectionViewCell.h */,
 				0DB7EE7D22C0CD9A004466D6 /* XCollectionViewCell.m */,
-				0DB7EE6E22C0CAFA004466D6 /* XGridView.h */,
-				0DB7EE6F22C0CAFA004466D6 /* XGridView.m */,
+				0DB7EE8622C1A502004466D6 /* UI */,
 				0DB7EE6D22C0C9F3004466D6 /* CategoryX */,
-				0DB7ED6522C0637C004466D6 /* XibView.h */,
 			);
 			path = XKit;
 			sourceTree = "<group>";
@@ -192,7 +181,6 @@
 			children = (
 				0DB7EE4E22C0C2D4004466D6 /* DynamicXKit-Info.plist */,
 				0DB7EDFA22C09946004466D6 /* DynamicXKit.h */,
-				0DB7EE3722C0B5AC004466D6 /* XibView.m */,
 			);
 			path = DynamicXKit;
 			sourceTree = "<group>";
@@ -201,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				0DB7EE7222C0CB26004466D6 /* XGridView.xib */,
-				0DB7ED6922C063C8004466D6 /* XibView.xib */,
 				0DB7ED6D22C06423004466D6 /* Resource */,
 				0DB7EE0D22C09F70004466D6 /* Info.plist */,
 			);
@@ -213,7 +200,6 @@
 			children = (
 				0DB7ED2F22C05986004466D6 /* Info.plist */,
 				0DB7ED2E22C05986004466D6 /* XKit.h */,
-				0DB7EE3322C0B568004466D6 /* XibView.m */,
 			);
 			path = StaticXkit;
 			sourceTree = "<group>";
@@ -237,6 +223,15 @@
 			path = CategoryX;
 			sourceTree = "<group>";
 		};
+		0DB7EE8622C1A502004466D6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0DB7EE6E22C0CAFA004466D6 /* XGridView.h */,
+				0DB7EE6F22C0CAFA004466D6 /* XGridView.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -245,17 +240,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB7ED5422C05B71004466D6 /* NSDictionary+X.h in Headers */,
-				0DB7EE8222C0CDB6004466D6 /* XTableViewCell.h in Headers */,
 				0DB7ED4B22C05A2D004466D6 /* UIImage+X.h in Headers */,
 				0DB7ED4F22C05A3D004466D6 /* NSString+X.h in Headers */,
 				0DB7ED4722C059DD004466D6 /* XObject.h in Headers */,
-				0DB7EE5222C0C3EC004466D6 /* NSBundle+X.h in Headers */,
 				0DB7ED5822C05C17004466D6 /* NSArray+X.h in Headers */,
+				0DB7EE8222C0CDB6004466D6 /* XTableViewCell.h in Headers */,
+				0DB7EE5222C0C3EC004466D6 /* NSBundle+X.h in Headers */,
 				0DB7EE7022C0CAFA004466D6 /* XGridView.h in Headers */,
-				0DB7EE2822C0B119004466D6 /* XibView.h in Headers */,
 				0DB7EE7A22C0CD11004466D6 /* UIView+X.h in Headers */,
-				0DB7EDB522C069C3004466D6 /* XDefines.h in Headers */,
 				0DB7EE7E22C0CD9A004466D6 /* XCollectionViewCell.h in Headers */,
+				0DB7EDB522C069C3004466D6 /* XDefines.h in Headers */,
 				0DB7ED3C22C05986004466D6 /* XKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,8 +263,8 @@
 				0DB7EDD422C06C4B004466D6 /* NSString+X.h in Headers */,
 				0DB7EDD522C06C4B004466D6 /* XObject.h in Headers */,
 				0DB7EDD622C06C4B004466D6 /* NSArray+X.h in Headers */,
-				0DB7EE2622C0B113004466D6 /* XibView.h in Headers */,
 				0DB7EDFB22C09953004466D6 /* DynamicXKit.h in Headers */,
+				0DB7EE8722C1A522004466D6 /* XGridView.h in Headers */,
 				0DB7EDD822C06C4B004466D6 /* XDefines.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,7 +367,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB7ED6A22C063C8004466D6 /* XibView.xib in Resources */,
 				0DB7ED6C22C06420004466D6 /* photos@2x.png in Resources */,
 				0DB7EE7322C0CB26004466D6 /* XGridView.xib in Resources */,
 			);
@@ -383,7 +376,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB7EDE522C06C4B004466D6 /* XibView.xib in Resources */,
 				0DB7EDE622C06C4B004466D6 /* photos@2x.png in Resources */,
 				0DB7EE4F22C0C2D4004466D6 /* DynamicXKit-Info.plist in Resources */,
 				0DB7EE8522C0D85A004466D6 /* XGridView.xib in Resources */,
@@ -394,7 +386,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB7EE1222C09FCF004466D6 /* XibView.xib in Resources */,
 				0DB7EE1122C09FB2004466D6 /* photos@2x.png in Resources */,
 				0DB7EE8422C0D852004466D6 /* XGridView.xib in Resources */,
 			);
@@ -407,7 +398,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB7EE3422C0B568004466D6 /* XibView.m in Sources */,
 				0DB7ED4C22C05A2D004466D6 /* UIImage+X.m in Sources */,
 				0DB7ED5522C05B71004466D6 /* NSDictionary+X.m in Sources */,
 				0DB7EE7B22C0CD11004466D6 /* UIView+X.m in Sources */,
@@ -426,9 +416,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB7EDDC22C06C4B004466D6 /* UIImage+X.m in Sources */,
+				0DB7EE8822C1A522004466D6 /* XGridView.m in Sources */,
 				0DB7EDDD22C06C4B004466D6 /* NSDictionary+X.m in Sources */,
 				0DB7EDDE22C06C4B004466D6 /* XObject.m in Sources */,
-				0DB7EE3822C0B5AC004466D6 /* XibView.m in Sources */,
 				0DB7EDDF22C06C4B004466D6 /* NSString+X.m in Sources */,
 				0DB7EDE022C06C4B004466D6 /* NSArray+X.m in Sources */,
 			);

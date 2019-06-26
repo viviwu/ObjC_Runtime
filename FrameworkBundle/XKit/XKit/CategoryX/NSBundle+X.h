@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSBundle (X)
 
-+ (UIImage *)bundleImageName:(NSString *)name;
++ (UIImage *)xImageNamed:(NSString *)name;
 
 + (UINib * )loadNibWithName:(NSString *)name;
 
