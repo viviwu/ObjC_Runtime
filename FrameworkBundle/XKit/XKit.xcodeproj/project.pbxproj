@@ -31,6 +31,18 @@
 		0D4FD98222C513040063D6DA /* XBezierUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97B22C513030063D6DA /* XBezierUtilities.m */; };
 		0D4FD98322C513040063D6DA /* XGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97C22C513040063D6DA /* XGeometry.h */; };
 		0D4FD98422C513040063D6DA /* XGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97C22C513040063D6DA /* XGeometry.h */; };
+		0D4FD98B22C515B00063D6DA /* XWindexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD98722C515B00063D6DA /* XWindexView.m */; };
+		0D4FD98C22C515B00063D6DA /* XWindexView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD98722C515B00063D6DA /* XWindexView.m */; };
+		0D4FD98D22C515B00063D6DA /* XWindexView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD98822C515B00063D6DA /* XWindexView.h */; };
+		0D4FD98E22C515B00063D6DA /* XWindexView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD98822C515B00063D6DA /* XWindexView.h */; };
+		0D4FD98F22C515B00063D6DA /* XWButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD98922C515B00063D6DA /* XWButton.h */; };
+		0D4FD99022C515B00063D6DA /* XWButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD98922C515B00063D6DA /* XWButton.h */; };
+		0D4FD99122C515B00063D6DA /* XWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD98A22C515B00063D6DA /* XWButton.m */; };
+		0D4FD99222C515B00063D6DA /* XWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD98A22C515B00063D6DA /* XWButton.m */; };
+		0D4FD99522C516C20063D6DA /* ColorSpaceUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD99322C516C20063D6DA /* ColorSpaceUtilites.m */; };
+		0D4FD99622C516C20063D6DA /* ColorSpaceUtilites.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD99322C516C20063D6DA /* ColorSpaceUtilites.m */; };
+		0D4FD99722C516C20063D6DA /* ColorSpaceUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD99422C516C20063D6DA /* ColorSpaceUtilities.h */; };
+		0D4FD99822C516C20063D6DA /* ColorSpaceUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD99422C516C20063D6DA /* ColorSpaceUtilities.h */; };
 		0DB7ED3C22C05986004466D6 /* XKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED2E22C05986004466D6 /* XKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7ED4722C059DD004466D6 /* XObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED4522C059DD004466D6 /* XObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7ED4822C059DD004466D6 /* XObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED4622C059DD004466D6 /* XObject.m */; };
@@ -93,6 +105,12 @@
 		0D4FD97A22C513030063D6DA /* XGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGeometry.m; sourceTree = "<group>"; };
 		0D4FD97B22C513030063D6DA /* XBezierUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBezierUtilities.m; sourceTree = "<group>"; };
 		0D4FD97C22C513040063D6DA /* XGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGeometry.h; sourceTree = "<group>"; };
+		0D4FD98722C515B00063D6DA /* XWindexView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWindexView.m; sourceTree = "<group>"; };
+		0D4FD98822C515B00063D6DA /* XWindexView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWindexView.h; sourceTree = "<group>"; };
+		0D4FD98922C515B00063D6DA /* XWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWButton.h; sourceTree = "<group>"; };
+		0D4FD98A22C515B00063D6DA /* XWButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWButton.m; sourceTree = "<group>"; };
+		0D4FD99322C516C20063D6DA /* ColorSpaceUtilites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSpaceUtilites.m; sourceTree = "<group>"; };
+		0D4FD99422C516C20063D6DA /* ColorSpaceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSpaceUtilities.h; sourceTree = "<group>"; };
 		0DB7ED2B22C05986004466D6 /* XKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB7ED2E22C05986004466D6 /* XKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XKit.h; sourceTree = "<group>"; };
 		0DB7ED2F22C05986004466D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,6 +227,8 @@
 				0D4FD97A22C513030063D6DA /* XGeometry.m */,
 				0D4FD97922C513030063D6DA /* XBezierUtilities.h */,
 				0D4FD97B22C513030063D6DA /* XBezierUtilities.m */,
+				0D4FD99322C516C20063D6DA /* ColorSpaceUtilites.m */,
+				0D4FD99422C516C20063D6DA /* ColorSpaceUtilities.h */,
 				0D4FD98522C513900063D6DA /* XFeedView */,
 				0D4FD97222C511150063D6DA /* XMLDictionary */,
 				0DB7EE8622C1A502004466D6 /* XViews */,
@@ -292,6 +312,10 @@
 				0D4FD96122C4F1F00063D6DA /* XCaptchaView.m */,
 				0D4FD96C22C5107D0063D6DA /* XGradientLayer.h */,
 				0D4FD96D22C5107D0063D6DA /* XGradientLayer.m */,
+				0D4FD98922C515B00063D6DA /* XWButton.h */,
+				0D4FD98A22C515B00063D6DA /* XWButton.m */,
+				0D4FD98822C515B00063D6DA /* XWindexView.h */,
+				0D4FD98722C515B00063D6DA /* XWindexView.m */,
 			);
 			path = XViews;
 			sourceTree = "<group>";
@@ -306,6 +330,7 @@
 				0DB7ED5422C05B71004466D6 /* NSDictionary+X.h in Headers */,
 				0DB7ED4B22C05A2D004466D6 /* UIImage+X.h in Headers */,
 				0DB7ED4F22C05A3D004466D6 /* NSString+X.h in Headers */,
+				0D4FD98F22C515B00063D6DA /* XWButton.h in Headers */,
 				0DB7ED4722C059DD004466D6 /* XObject.h in Headers */,
 				0DB7ED5822C05C17004466D6 /* NSArray+X.h in Headers */,
 				0DB7EE8222C0CDB6004466D6 /* XTableViewCell.h in Headers */,
@@ -317,10 +342,12 @@
 				0DB7EDB522C069C3004466D6 /* XDefines.h in Headers */,
 				0D4FD96222C4F1F00063D6DA /* XCaptchaView.h in Headers */,
 				0D4FD96E22C5107D0063D6DA /* XGradientLayer.h in Headers */,
+				0D4FD98D22C515B00063D6DA /* XWindexView.h in Headers */,
 				0D4FD97522C511150063D6DA /* XMLDictionary.h in Headers */,
 				0D4FD97D22C513040063D6DA /* XBezierUtilities.h in Headers */,
 				0D4FD96822C504760063D6DA /* UIColor+X.h in Headers */,
 				0DB7ED3C22C05986004466D6 /* XKit.h in Headers */,
+				0D4FD99722C516C20063D6DA /* ColorSpaceUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,9 +364,12 @@
 				0DB7EDD622C06C4B004466D6 /* NSArray+X.h in Headers */,
 				0DB7EDFB22C09953004466D6 /* DynamicXKit.h in Headers */,
 				0DB7EE8722C1A522004466D6 /* XGridView.h in Headers */,
+				0D4FD99822C516C20063D6DA /* ColorSpaceUtilities.h in Headers */,
 				0D4FD96522C4FA6F0063D6DA /* XCaptchaView.h in Headers */,
 				0D4FD97622C511150063D6DA /* XMLDictionary.h in Headers */,
+				0D4FD99022C515B00063D6DA /* XWButton.h in Headers */,
 				0DB7EDD822C06C4B004466D6 /* XDefines.h in Headers */,
+				0D4FD98E22C515B00063D6DA /* XWindexView.h in Headers */,
 				0D4FD97022C510A00063D6DA /* XGradientLayer.h in Headers */,
 				0D4FD96A22C504E70063D6DA /* UIColor+X.h in Headers */,
 			);
@@ -479,7 +509,9 @@
 				0DB7ED4C22C05A2D004466D6 /* UIImage+X.m in Sources */,
 				0DB7ED5522C05B71004466D6 /* NSDictionary+X.m in Sources */,
 				0D4FD97722C511150063D6DA /* XMLDictionary.m in Sources */,
+				0D4FD99522C516C20063D6DA /* ColorSpaceUtilites.m in Sources */,
 				0D4FD96F22C5107D0063D6DA /* XGradientLayer.m in Sources */,
+				0D4FD98B22C515B00063D6DA /* XWindexView.m in Sources */,
 				0DB7EE7B22C0CD11004466D6 /* UIView+X.m in Sources */,
 				0DB7EE5322C0C3EC004466D6 /* NSBundle+X.m in Sources */,
 				0DB7EE7F22C0CD9A004466D6 /* XCollectionViewCell.m in Sources */,
@@ -490,6 +522,7 @@
 				0DB7ED5922C05C17004466D6 /* NSArray+X.m in Sources */,
 				0D4FD96922C504760063D6DA /* UIColor+X.m in Sources */,
 				0DB7EE7122C0CAFA004466D6 /* XGridView.m in Sources */,
+				0D4FD99122C515B00063D6DA /* XWButton.m in Sources */,
 				0D4FD97F22C513040063D6DA /* XGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,9 +537,12 @@
 				0D4FD98022C513040063D6DA /* XGeometry.m in Sources */,
 				0DB7EDDD22C06C4B004466D6 /* NSDictionary+X.m in Sources */,
 				0D4FD96422C4FA6B0063D6DA /* XCaptchaView.m in Sources */,
+				0D4FD99222C515B00063D6DA /* XWButton.m in Sources */,
 				0DB7EDDE22C06C4B004466D6 /* XObject.m in Sources */,
 				0D4FD97822C511150063D6DA /* XMLDictionary.m in Sources */,
+				0D4FD99622C516C20063D6DA /* ColorSpaceUtilites.m in Sources */,
 				0DB7EDDF22C06C4B004466D6 /* NSString+X.m in Sources */,
+				0D4FD98C22C515B00063D6DA /* XWindexView.m in Sources */,
 				0D4FD96B22C504E70063D6DA /* UIColor+X.m in Sources */,
 				0D4FD97122C510A00063D6DA /* XGradientLayer.m in Sources */,
 				0DB7EDE022C06C4B004466D6 /* NSArray+X.m in Sources */,

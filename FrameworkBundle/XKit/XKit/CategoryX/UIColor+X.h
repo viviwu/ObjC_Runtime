@@ -16,7 +16,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)randomColorAlpha:(float)alpha;
 
 
+#pragma mar -- LightAndDark
 
+- (UIColor *)adjustHue:(float)hm saturation:(float)sm brightness:(float)bm alpha:(float)am;
+
+- (UIColor *)lumColor:(float)mult;
+
+- (UIColor *)lighterColor;
+
+- (UIColor *)darkerColor;
 
 #pragma mark ++++++++++++++++++++++++++++++++++++++++++++++++++++
 

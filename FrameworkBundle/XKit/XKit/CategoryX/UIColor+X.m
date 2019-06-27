@@ -5,7 +5,9 @@
 //  Created by viviwu on 2019/6/27.
 //  Copyright © 2019 vivi wu. All rights reserved.
 //
-
+ 
+#import <CoreGraphics/CoreGraphics.h>
+#import "ColorSpaceUtilities.h"
 #import "UIColor+X.h"
 
 @implementation UIColor (X)
@@ -25,6 +27,72 @@
 }
 
 
+#pragma mar -- LightAndDark
+
+- (UIColor *)lumColor:(float)mult {
+  float hsbH, hsbS, hsbB;
+  float rgbaR, rgbaG, rgbaB, rgbaA;
+  
+  // Get RGB
+  CGColorRef cgColor = [self CGColor];
+  CGColorSpaceRef cgColorSpace = CGColorGetColorSpace(cgColor);
+  if (CGColorSpaceGetModel(cgColorSpace) != kCGColorSpaceModelRGB) {
+    NSLog(@"Can't convert not RGB color");
+    return self;
+  } else {
+    const CGFloat *colors = CGColorGetComponents(cgColor);
+    rgbaR = colors[0];
+    rgbaG = colors[1];
+    rgbaB = colors[2];
+    rgbaA = CGColorGetAlpha(cgColor);
+  }
+  
+  RGB2HSL(rgbaR, rgbaG, rgbaB, &hsbH, &hsbS, &hsbB);
+  
+  hsbB = MIN(MAX(hsbB * mult, 0.0), 1.0);
+  
+  HSL2RGB(hsbH, hsbS, hsbB, &rgbaR, &rgbaG, &rgbaB);
+  
+  return [UIColor colorWithRed:rgbaR green:rgbaG blue:rgbaB alpha:rgbaA];
+}
+
+- (UIColor *)adjustHue:(float)hm saturation:(float)sm brightness:(float)bm alpha:(float)am {
+  float hsbH, hsbS, hsbB;
+  float rgbaR, rgbaG, rgbaB, rgbaA;
+  
+  // Get RGB
+  CGColorRef cgColor = [self CGColor];
+  CGColorSpaceRef cgColorSpace = CGColorGetColorSpace(cgColor);
+  if (CGColorSpaceGetModel(cgColorSpace) != kCGColorSpaceModelRGB) {
+    NSLog(@"Can't convert not RGB color");
+    return self;
+  } else {
+    const CGFloat *colors = CGColorGetComponents(cgColor);
+    rgbaR = colors[0];
+    rgbaG = colors[1];
+    rgbaB = colors[2];
+    rgbaA = CGColorGetAlpha(cgColor);
+  }
+  
+  RGB2HSL(rgbaR, rgbaG, rgbaB, &hsbH, &hsbS, &hsbB);
+  
+  hsbH = MIN(MAX(hsbH + hm, 0.0), 1.0);
+  hsbS = MIN(MAX(hsbS + sm, 0.0), 1.0);
+  hsbB = MIN(MAX(hsbB + bm, 0.0), 1.0);
+  rgbaA = MIN(MAX(rgbaA + am, 0.0), 1.0);
+  
+  HSL2RGB(hsbH, hsbS, hsbB, &rgbaR, &rgbaG, &rgbaB);
+  
+  return [UIColor colorWithRed:rgbaR green:rgbaG blue:rgbaB alpha:rgbaA];
+}
+
+- (UIColor *)lighterColor {
+  return [self lumColor:1.3];
+}
+
+- (UIColor *)darkerColor {
+  return [self lumColor:0.75];
+}
 
 #pragma mark ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
