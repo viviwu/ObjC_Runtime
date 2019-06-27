@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D4FD96222C4F1F00063D6DA /* XCaptchaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD96022C4F1F00063D6DA /* XCaptchaView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D4FD96322C4F1F00063D6DA /* XCaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD96122C4F1F00063D6DA /* XCaptchaView.m */; };
+		0D4FD96422C4FA6B0063D6DA /* XCaptchaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD96122C4F1F00063D6DA /* XCaptchaView.m */; };
+		0D4FD96522C4FA6F0063D6DA /* XCaptchaView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD96022C4F1F00063D6DA /* XCaptchaView.h */; };
+		0D4FD96822C504760063D6DA /* UIColor+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD96622C504760063D6DA /* UIColor+X.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D4FD96922C504760063D6DA /* UIColor+X.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD96722C504760063D6DA /* UIColor+X.m */; };
+		0D4FD96A22C504E70063D6DA /* UIColor+X.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD96622C504760063D6DA /* UIColor+X.h */; };
+		0D4FD96B22C504E70063D6DA /* UIColor+X.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD96722C504760063D6DA /* UIColor+X.m */; };
+		0D4FD96E22C5107D0063D6DA /* XGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD96C22C5107D0063D6DA /* XGradientLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D4FD96F22C5107D0063D6DA /* XGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD96D22C5107D0063D6DA /* XGradientLayer.m */; };
+		0D4FD97022C510A00063D6DA /* XGradientLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD96C22C5107D0063D6DA /* XGradientLayer.h */; };
+		0D4FD97122C510A00063D6DA /* XGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD96D22C5107D0063D6DA /* XGradientLayer.m */; };
+		0D4FD97522C511150063D6DA /* XMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97322C511150063D6DA /* XMLDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D4FD97622C511150063D6DA /* XMLDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97322C511150063D6DA /* XMLDictionary.h */; };
+		0D4FD97722C511150063D6DA /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97422C511150063D6DA /* XMLDictionary.m */; };
+		0D4FD97822C511150063D6DA /* XMLDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97422C511150063D6DA /* XMLDictionary.m */; };
+		0D4FD97D22C513040063D6DA /* XBezierUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97922C513030063D6DA /* XBezierUtilities.h */; };
+		0D4FD97E22C513040063D6DA /* XBezierUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97922C513030063D6DA /* XBezierUtilities.h */; };
+		0D4FD97F22C513040063D6DA /* XGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97A22C513030063D6DA /* XGeometry.m */; };
+		0D4FD98022C513040063D6DA /* XGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97A22C513030063D6DA /* XGeometry.m */; };
+		0D4FD98122C513040063D6DA /* XBezierUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97B22C513030063D6DA /* XBezierUtilities.m */; };
+		0D4FD98222C513040063D6DA /* XBezierUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D4FD97B22C513030063D6DA /* XBezierUtilities.m */; };
+		0D4FD98322C513040063D6DA /* XGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97C22C513040063D6DA /* XGeometry.h */; };
+		0D4FD98422C513040063D6DA /* XGeometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4FD97C22C513040063D6DA /* XGeometry.h */; };
 		0DB7ED3C22C05986004466D6 /* XKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED2E22C05986004466D6 /* XKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7ED4722C059DD004466D6 /* XObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DB7ED4522C059DD004466D6 /* XObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DB7ED4822C059DD004466D6 /* XObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED4622C059DD004466D6 /* XObject.m */; };
@@ -57,6 +81,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D4FD96022C4F1F00063D6DA /* XCaptchaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCaptchaView.h; sourceTree = "<group>"; };
+		0D4FD96122C4F1F00063D6DA /* XCaptchaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCaptchaView.m; sourceTree = "<group>"; };
+		0D4FD96622C504760063D6DA /* UIColor+X.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+X.h"; sourceTree = "<group>"; };
+		0D4FD96722C504760063D6DA /* UIColor+X.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+X.m"; sourceTree = "<group>"; };
+		0D4FD96C22C5107D0063D6DA /* XGradientLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XGradientLayer.h; sourceTree = "<group>"; };
+		0D4FD96D22C5107D0063D6DA /* XGradientLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XGradientLayer.m; sourceTree = "<group>"; };
+		0D4FD97322C511150063D6DA /* XMLDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDictionary.h; sourceTree = "<group>"; };
+		0D4FD97422C511150063D6DA /* XMLDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDictionary.m; sourceTree = "<group>"; };
+		0D4FD97922C513030063D6DA /* XBezierUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBezierUtilities.h; sourceTree = "<group>"; };
+		0D4FD97A22C513030063D6DA /* XGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XGeometry.m; sourceTree = "<group>"; };
+		0D4FD97B22C513030063D6DA /* XBezierUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBezierUtilities.m; sourceTree = "<group>"; };
+		0D4FD97C22C513040063D6DA /* XGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XGeometry.h; sourceTree = "<group>"; };
 		0DB7ED2B22C05986004466D6 /* XKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB7ED2E22C05986004466D6 /* XKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XKit.h; sourceTree = "<group>"; };
 		0DB7ED2F22C05986004466D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,11 +157,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D4FD97222C511150063D6DA /* XMLDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				0D4FD97322C511150063D6DA /* XMLDictionary.h */,
+				0D4FD97422C511150063D6DA /* XMLDictionary.m */,
+			);
+			path = XMLDictionary;
+			sourceTree = "<group>";
+		};
+		0D4FD98522C513900063D6DA /* XFeedView */ = {
+			isa = PBXGroup;
+			children = (
+				0DB7EE8022C0CDB6004466D6 /* XTableViewCell.h */,
+				0DB7EE8122C0CDB6004466D6 /* XTableViewCell.m */,
+				0DB7EE7C22C0CD9A004466D6 /* XCollectionViewCell.h */,
+				0DB7EE7D22C0CD9A004466D6 /* XCollectionViewCell.m */,
+			);
+			path = XFeedView;
+			sourceTree = "<group>";
+		};
 		0DB7ED2122C05986004466D6 = {
 			isa = PBXGroup;
 			children = (
-				0DB7ED2D22C05986004466D6 /* XKit */,
 				0DB7EE5122C0C31F004466D6 /* StaticXkit */,
+				0DB7ED2D22C05986004466D6 /* XKit */,
 				0DB7EDFC22C099CE004466D6 /* DynamicXKit */,
 				0DB7EE0C22C09F70004466D6 /* XBundle */,
 				0DB7ED2C22C05986004466D6 /* Products */,
@@ -149,11 +205,13 @@
 				0DB7ED5122C05A87004466D6 /* XDefines.h */,
 				0DB7ED4522C059DD004466D6 /* XObject.h */,
 				0DB7ED4622C059DD004466D6 /* XObject.m */,
-				0DB7EE8022C0CDB6004466D6 /* XTableViewCell.h */,
-				0DB7EE8122C0CDB6004466D6 /* XTableViewCell.m */,
-				0DB7EE7C22C0CD9A004466D6 /* XCollectionViewCell.h */,
-				0DB7EE7D22C0CD9A004466D6 /* XCollectionViewCell.m */,
-				0DB7EE8622C1A502004466D6 /* UI */,
+				0D4FD97C22C513040063D6DA /* XGeometry.h */,
+				0D4FD97A22C513030063D6DA /* XGeometry.m */,
+				0D4FD97922C513030063D6DA /* XBezierUtilities.h */,
+				0D4FD97B22C513030063D6DA /* XBezierUtilities.m */,
+				0D4FD98522C513900063D6DA /* XFeedView */,
+				0D4FD97222C511150063D6DA /* XMLDictionary */,
+				0DB7EE8622C1A502004466D6 /* XViews */,
 				0DB7EE6D22C0C9F3004466D6 /* CategoryX */,
 			);
 			path = XKit;
@@ -219,17 +277,23 @@
 				0DB7EE1E22C0A885004466D6 /* NSBundle+X.m */,
 				0DB7EE7822C0CD11004466D6 /* UIView+X.h */,
 				0DB7EE7922C0CD11004466D6 /* UIView+X.m */,
+				0D4FD96622C504760063D6DA /* UIColor+X.h */,
+				0D4FD96722C504760063D6DA /* UIColor+X.m */,
 			);
 			path = CategoryX;
 			sourceTree = "<group>";
 		};
-		0DB7EE8622C1A502004466D6 /* UI */ = {
+		0DB7EE8622C1A502004466D6 /* XViews */ = {
 			isa = PBXGroup;
 			children = (
 				0DB7EE6E22C0CAFA004466D6 /* XGridView.h */,
 				0DB7EE6F22C0CAFA004466D6 /* XGridView.m */,
+				0D4FD96022C4F1F00063D6DA /* XCaptchaView.h */,
+				0D4FD96122C4F1F00063D6DA /* XCaptchaView.m */,
+				0D4FD96C22C5107D0063D6DA /* XGradientLayer.h */,
+				0D4FD96D22C5107D0063D6DA /* XGradientLayer.m */,
 			);
-			path = UI;
+			path = XViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,10 +310,16 @@
 				0DB7ED5822C05C17004466D6 /* NSArray+X.h in Headers */,
 				0DB7EE8222C0CDB6004466D6 /* XTableViewCell.h in Headers */,
 				0DB7EE5222C0C3EC004466D6 /* NSBundle+X.h in Headers */,
+				0D4FD98322C513040063D6DA /* XGeometry.h in Headers */,
 				0DB7EE7022C0CAFA004466D6 /* XGridView.h in Headers */,
 				0DB7EE7A22C0CD11004466D6 /* UIView+X.h in Headers */,
 				0DB7EE7E22C0CD9A004466D6 /* XCollectionViewCell.h in Headers */,
 				0DB7EDB522C069C3004466D6 /* XDefines.h in Headers */,
+				0D4FD96222C4F1F00063D6DA /* XCaptchaView.h in Headers */,
+				0D4FD96E22C5107D0063D6DA /* XGradientLayer.h in Headers */,
+				0D4FD97522C511150063D6DA /* XMLDictionary.h in Headers */,
+				0D4FD97D22C513040063D6DA /* XBezierUtilities.h in Headers */,
+				0D4FD96822C504760063D6DA /* UIColor+X.h in Headers */,
 				0DB7ED3C22C05986004466D6 /* XKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,13 +329,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB7EDD222C06C4B004466D6 /* NSDictionary+X.h in Headers */,
+				0D4FD98422C513040063D6DA /* XGeometry.h in Headers */,
 				0DB7EDD322C06C4B004466D6 /* UIImage+X.h in Headers */,
 				0DB7EDD422C06C4B004466D6 /* NSString+X.h in Headers */,
+				0D4FD97E22C513040063D6DA /* XBezierUtilities.h in Headers */,
 				0DB7EDD522C06C4B004466D6 /* XObject.h in Headers */,
 				0DB7EDD622C06C4B004466D6 /* NSArray+X.h in Headers */,
 				0DB7EDFB22C09953004466D6 /* DynamicXKit.h in Headers */,
 				0DB7EE8722C1A522004466D6 /* XGridView.h in Headers */,
+				0D4FD96522C4FA6F0063D6DA /* XCaptchaView.h in Headers */,
+				0D4FD97622C511150063D6DA /* XMLDictionary.h in Headers */,
 				0DB7EDD822C06C4B004466D6 /* XDefines.h in Headers */,
+				0D4FD97022C510A00063D6DA /* XGradientLayer.h in Headers */,
+				0D4FD96A22C504E70063D6DA /* UIColor+X.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +413,7 @@
 				TargetAttributes = {
 					0DB7ED2A22C05986004466D6 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					0DB7EE0A22C09F70004466D6 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -398,16 +475,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D4FD96322C4F1F00063D6DA /* XCaptchaView.m in Sources */,
 				0DB7ED4C22C05A2D004466D6 /* UIImage+X.m in Sources */,
 				0DB7ED5522C05B71004466D6 /* NSDictionary+X.m in Sources */,
+				0D4FD97722C511150063D6DA /* XMLDictionary.m in Sources */,
+				0D4FD96F22C5107D0063D6DA /* XGradientLayer.m in Sources */,
 				0DB7EE7B22C0CD11004466D6 /* UIView+X.m in Sources */,
 				0DB7EE5322C0C3EC004466D6 /* NSBundle+X.m in Sources */,
 				0DB7EE7F22C0CD9A004466D6 /* XCollectionViewCell.m in Sources */,
 				0DB7EE8322C0CDB6004466D6 /* XTableViewCell.m in Sources */,
+				0D4FD98122C513040063D6DA /* XBezierUtilities.m in Sources */,
 				0DB7ED4822C059DD004466D6 /* XObject.m in Sources */,
 				0DB7ED5022C05A3D004466D6 /* NSString+X.m in Sources */,
 				0DB7ED5922C05C17004466D6 /* NSArray+X.m in Sources */,
+				0D4FD96922C504760063D6DA /* UIColor+X.m in Sources */,
 				0DB7EE7122C0CAFA004466D6 /* XGridView.m in Sources */,
+				0D4FD97F22C513040063D6DA /* XGeometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,10 +499,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DB7EDDC22C06C4B004466D6 /* UIImage+X.m in Sources */,
+				0D4FD98222C513040063D6DA /* XBezierUtilities.m in Sources */,
 				0DB7EE8822C1A522004466D6 /* XGridView.m in Sources */,
+				0D4FD98022C513040063D6DA /* XGeometry.m in Sources */,
 				0DB7EDDD22C06C4B004466D6 /* NSDictionary+X.m in Sources */,
+				0D4FD96422C4FA6B0063D6DA /* XCaptchaView.m in Sources */,
 				0DB7EDDE22C06C4B004466D6 /* XObject.m in Sources */,
+				0D4FD97822C511150063D6DA /* XMLDictionary.m in Sources */,
 				0DB7EDDF22C06C4B004466D6 /* NSString+X.m in Sources */,
+				0D4FD96B22C504E70063D6DA /* UIColor+X.m in Sources */,
+				0D4FD97122C510A00063D6DA /* XGradientLayer.m in Sources */,
 				0DB7EDE022C06C4B004466D6 /* NSArray+X.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +646,7 @@
 		0DB7ED4022C05986004466D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../buildProducts/Static";
@@ -581,6 +671,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qway.ios.XKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -588,6 +680,7 @@
 		0DB7ED4122C05986004466D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/../buildProducts/Static";
@@ -609,6 +702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.qway.ios.XKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

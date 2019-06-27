@@ -20,13 +20,21 @@ FOUNDATION_EXPORT const unsigned char XKitVersionString[];
 #import <XKit/XKit.h>
 #import <XKit/XDefines.h>
 #import <XKit/XObject.h>
+#import <XKit/XMLDictionary.h>
 
-#import <XKit/UIImage+X.h>
 #import <XKit/UIView+X.h>
 
 #import <XKit/NSBundle+X.h>
+
+#import <XKit/UIColor+X.h>
+#import <XKit/UIImage+X.h>
+
 #import <XKit/NSString+X.h> 
 #import <XKit/NSArray+X.h>
 #import <XKit/NSDictionary+X.h>
 
+
+#import <XKit/XGradientLayer.h>
 #import <XKit/XGridView.h>
+#import <XKit/XCaptchaView.h>
+

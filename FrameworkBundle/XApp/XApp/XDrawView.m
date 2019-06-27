@@ -9,6 +9,15 @@
 #import "XDrawView.h"
 #include <math.h>
 
+#if TARGET_FLAG         /*1*/
+#import <DynamicXKit/DynamicXKit.h>
+#else
+#import <XKit/XKit.h>
+#endif
+
+#define kSelfW self.bounds.size.width
+#define kSelfH self.bounds.size.height
+
 @implementation XDrawView
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
@@ -19,15 +28,27 @@
     }
     return self;
 }
+ 
 
 - (void)drawRect:(CGRect)rect
 {
     [self drawCscoLogo];
     [super drawRect:rect];
+  
+  
+  NSString * string = @"GitHub is home to over 36 million developers working together to host and review code, manage projects, and build software together.";
+  
+  for (NSString * word in string.tokenizerUnitWord) {
+    NSDictionary * attri = @{NSFontAttributeName : [UIFont systemFontOfSize:arc4random()%10+10], NSForegroundColorAttributeName: UIColor.randomColor};
+    uint32_t x = arc4random() % (uint32_t)(kSelfW-50) + 50;
+    uint32_t y = arc4random() % (uint32_t)(kSelfH-20) + 20;
+    CGPoint  point = CGPointMake(x, y);
+    [word drawAtPoint:point withAttributes:attri];
+  }
+  
 }
 
-#define kSelfW self.bounds.size.width
-#define kSelfH self.bounds.size.height
+
 - (void)drawCscoLogo
 {
     CGRect rect = self.bounds;

@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreFoundation/CoreFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (X)
+
+- (NSArray<NSString*>*)tokenizerUnitWord; //分词
 
 @end
 

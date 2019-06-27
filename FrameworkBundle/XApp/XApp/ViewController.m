@@ -20,8 +20,9 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) XDrawView *drawView;
-@property (strong, nonatomic) UIImage * image;
+@property (strong, nonatomic) XCaptchaView * captchaView;
 
+@property (strong, nonatomic) UIImage * image;
 @property (strong, nonatomic) PHAssetCollection * createCollection;
 @end
 
@@ -39,17 +40,29 @@
     _drawView.backgroundColor = [UIColor colorWithRed:0.05 green:0.40 blue:0.70 alpha:0.99];
     [self.view addSubview:_drawView];
     
-    
-    XGridView * grid = [[XGridView alloc]initWithFrame:CGRectMake(10, 500, 150, 200)];
+    XGridView * grid = [[XGridView alloc]initWithFrame: CGRectMake(10, 500, 150, 200)];
     grid.imageView.image = [NSBundle xImageNamed:@"photos"];
     grid.titleLabel.text = @"XGridView";
     grid.rightSubLabel.text = @"right";
     grid.leftSubLabel.text = @"left";
     [self.view addSubview:grid];
-     
+  
+  _captchaView = [[XCaptchaView alloc]initWithFrame:CGRectMake(200, 500, 100, 40)];
+  [self.view addSubview:_captchaView];
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
+  [_captchaView addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
-    
+  
+  UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(200, 600, 100, 100)];
+//  imgV.image = UIImage im
+  [self.view addSubview:imgV];
 }
+
+- (void)tapClick:(UITapGestureRecognizer*)tap{
+  [_captchaView changeCaptcha];
+  NSLog(@"captcha == %@", _captchaView.captcha);
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
