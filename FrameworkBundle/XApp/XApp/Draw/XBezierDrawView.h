@@ -1,8 +1,8 @@
 //
-//  XDrawView.h
-//  GeoDraw
+//  XBezierDrawView.h
+//  XApp
 //
-//  Created by vivi wu on 2019/6/25.
+//  Created by vivi wu on 2019/6/28.
 //  Copyright © 2019 vivi wu. All rights reserved.
 //
 
@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface XDrawView : UIView
-@property (nonatomic, assign) BOOL redo;
+@interface XBezierDrawView : XUIView
+
 @end
 
 NS_ASSUME_NONNULL_END

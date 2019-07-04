@@ -9,6 +9,7 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "ColorSpaceUtilities.h"
 #import "UIColor+X.h"
+#import <Foundation/NSObjCRuntime.h>
 
 @implementation UIColor (X)
 
@@ -56,7 +57,11 @@
   return [UIColor colorWithRed:rgbaR green:rgbaG blue:rgbaB alpha:rgbaA];
 }
 
-- (UIColor *)adjustHue:(float)hm saturation:(float)sm brightness:(float)bm alpha:(float)am {
+- (UIColor *)adjustHue:(float)hm
+            saturation:(float)sm
+            brightness:(float)bm
+                 alpha:(float)am
+{
   float hsbH, hsbS, hsbB;
   float rgbaR, rgbaG, rgbaB, rgbaA;
   

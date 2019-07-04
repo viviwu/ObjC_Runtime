@@ -1,0 +1,768 @@
+/* CoreGraphics - CGContext.h
+Copyright (c) 2000-2012 Apple Inc.
+All rights reserved. */
+
+#ifndef CGCONTEXT_H_
+#define CGCONTEXT_H_
+
+#include <CoreFoundation/CFBase.h>
+#include <CoreFoundation/CFAvailability.h>
+#include <stdint.h>
+
+typedef struct CF_BRIDGED_TYPE(id) CGContext *CGContextRef;
+
+#include <CoreGraphics/CGBase.h>
+#include <CoreGraphics/CGAffineTransform.h>
+#include <CoreGraphics/CGColor.h>
+#include <CoreGraphics/CGColorSpace.h>
+#include <CoreGraphics/CGFont.h>
+#include <CoreGraphics/CGGradient.h>
+#include <CoreGraphics/CGImage.h>
+#include <CoreGraphics/CGPath.h>
+#include <CoreGraphics/CGPattern.h>
+#include <CoreGraphics/CGPDFDocument.h>
+#include <CoreGraphics/CGShading.h>
+
+CF_IMPLICIT_BRIDGING_ENABLED
+
+CF_ASSUME_NONNULL_BEGIN
+
+/* Drawing modes for paths. */
+
+typedef CF_ENUM (int32_t, CGPathDrawingMode) {
+kCGPathFill,        //非零规则
+kCGPathEOFill,      //奇偶规则
+kCGPathStroke,      //画线
+kCGPathFillStroke,  //表示填充 画线
+kCGPathEOFillStroke //表示描线 不是填充
+};
+
+/* Drawing modes for text. */
+
+typedef CF_ENUM (int32_t, CGTextDrawingMode) {
+kCGTextFill,
+kCGTextStroke,
+kCGTextFillStroke,
+kCGTextInvisible,
+kCGTextFillClip,
+kCGTextStrokeClip,
+kCGTextFillStrokeClip,
+kCGTextClip
+};
+
+/* Text encodings. */
+
+typedef CF_ENUM (int32_t, CGTextEncoding) {
+kCGEncodingFontSpecific,
+kCGEncodingMacRoman
+} CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_9, __IPHONE_2_0, __IPHONE_7_0);
+
+/* Interpolation quality. */
+
+typedef CF_ENUM (int32_t, CGInterpolationQuality) {
+kCGInterpolationDefault = 0,  /* Let the context decide. */
+kCGInterpolationNone = 1,     /* Never interpolate. */
+kCGInterpolationLow = 2,      /* Low quality, fast interpolation. */
+kCGInterpolationMedium = 4,   /* Medium quality, slower than kCGInterpolationLow. */
+kCGInterpolationHigh = 3      /* Highest quality, slower than kCGInterpolationMedium. */
+};
+
+//混合模式
+typedef CF_ENUM (int32_t, CGBlendMode) {
+/* Available in Mac OS X 10.4 & later. */
+kCGBlendModeNormal,     //正常
+kCGBlendModeMultiply,   //正片叠底
+kCGBlendModeScreen,     //滤色
+kCGBlendModeOverlay,    //叠加
+kCGBlendModeDarken,     //变暗
+kCGBlendModeLighten,    //变亮
+kCGBlendModeColorDodge, //颜色减淡
+kCGBlendModeColorBurn,  //颜色加深
+kCGBlendModeSoftLight,  //柔光
+kCGBlendModeHardLight,  //强光
+kCGBlendModeDifference, //差值
+kCGBlendModeExclusion,  //排除
+kCGBlendModeHue,        //色相
+kCGBlendModeSaturation, //保护度
+kCGBlendModeColor,      //颜色
+kCGBlendModeLuminosity, //明度
+
+/* Available in Mac OS X 10.5 & later.
+
+The Porter-Duff "source over" mode is called `kCGBlendModeNormal':
+R = S + D*(1 - Sa)
+
+Note that the Porter-Duff "XOR" mode is only titularly related to the
+classical bitmap XOR operation (which is unsupported by
+CoreGraphics). */
+
+kCGBlendModeClear,                  /* R = 0 *///清空（如果图标背景色为白色则为全白）
+kCGBlendModeCopy,                   /* R = S *///全色覆盖整个图片
+kCGBlendModeSourceIn,               /* R = S*Da *///线条变色
+kCGBlendModeSourceOut,              /* R = S*(1 - Da) *///背景变为目的色,线条自动变为白色
+kCGBlendModeSourceAtop,             /* R = S*Da + D*(1 - Sa) *///线条变色
+kCGBlendModeDestinationOver,        /* R = S*(1 - Da) + D *///背景色变为目的色，线条色不变
+kCGBlendModeDestinationIn,          /* R = D*Sa *///只看到线条色（本色）
+kCGBlendModeDestinationOut,         /* R = D*(1 - Sa) *///空白
+kCGBlendModeDestinationAtop,        /* R = S*(1 - Da) + D*Sa *///会把整个矩形的背景填充目的色 原色保留
+kCGBlendModeXOR,                    /* R = S*(1 - Da) + D*(1 - Sa) *///线条变白，背景色变为目的色
+kCGBlendModePlusDarker,             /* R = MAX(0, (1 - D) + (1 - S)) *///.线条变为黑色， 背景色变为目的色
+kCGBlendModePlusLighter             /* R = MIN(1, S + D) *///线条变为白色
+};
+
+//返回上下文的类型标识符
+CG_EXTERN CFTypeID CGContextGetTypeID(void)
+CG_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+
+/** Graphics state functions. **/
+//压栈之后的修改不会影响之前的修改，如果撤销之后的修改，直接出栈就ok。
+//压栈，保存一份当前图形上下文
+CG_EXTERN void CGContextSaveGState(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//出栈，恢复一份当前图形上下文
+CG_EXTERN void CGContextRestoreGState(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Coordinate space transformations. **/
+//CTM（current transformation matrix当前转换矩阵
+//坐标系x和y缩放
+CG_EXTERN void CGContextScaleCTM(CGContextRef cg_nullable c,
+CGFloat sx, CGFloat sy)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//坐标系平移，改变画布位置
+CG_EXTERN void CGContextTranslateCTM(CGContextRef cg_nullable c,
+CGFloat tx, CGFloat ty)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//坐标系旋转
+CG_EXTERN void CGContextRotateCTM(CGContextRef cg_nullable c, CGFloat angle)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//transform仿射变换矩阵进行图形状态的变换
+CG_EXTERN void CGContextConcatCTM(CGContextRef cg_nullable c,
+CGAffineTransform transform)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//获取转换矩阵（CTM）
+CG_EXTERN CGAffineTransform CGContextGetCTM(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Drawing attribute functions. **/
+
+//设置线宽
+CG_EXTERN void CGContextSetLineWidth(CGContextRef cg_nullable c, CGFloat width)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置线冒样式 枚举
+CG_EXTERN void CGContextSetLineCap(CGContextRef cg_nullable c, CGLineCap cap)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置线连接样式
+CG_EXTERN void CGContextSetLineJoin(CGContextRef cg_nullable c, CGLineJoin join)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//连接线内外角距离限制
+CG_EXTERN void CGContextSetMiterLimit(CGContextRef cg_nullable c, CGFloat limit)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画虚线
+CG_EXTERN void CGContextSetLineDash(CGContextRef cg_nullable c, CGFloat phase,
+const CGFloat * __nullable lengths, size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置渲染精度，数值越小，精度越高，越耗时
+CG_EXTERN void CGContextSetFlatness(CGContextRef cg_nullable c, CGFloat flatness)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置透明度
+CG_EXTERN void CGContextSetAlpha(CGContextRef cg_nullable c, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//混合图层，后面绘制的图像会覆盖前面的,被覆盖不可见 此方法进行设置叠加状态。
+CG_EXTERN void CGContextSetBlendMode(CGContextRef cg_nullable c, CGBlendMode mode)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/** Path construction functions. **/
+
+/* 注意上下文在任何时候都有一个路径在使用：路径不是图形状态的一部分。 */
+
+//开始新路径，废弃旧的
+CG_EXTERN void CGContextBeginPath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//移动到指定点
+CG_EXTERN void CGContextMoveToPoint(CGContextRef cg_nullable c,
+CGFloat x, CGFloat y)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画线到指定点
+CG_EXTERN void CGContextAddLineToPoint(CGContextRef cg_nullable c,
+CGFloat x, CGFloat y)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画三次贝塞尔曲线
+CG_EXTERN void CGContextAddCurveToPoint(CGContextRef cg_nullable c, CGFloat cp1x,
+CGFloat cp1y, CGFloat cp2x, CGFloat cp2y, CGFloat x, CGFloat y)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//绘制二次贝塞尔曲线
+CG_EXTERN void CGContextAddQuadCurveToPoint(CGContextRef cg_nullable c,
+CGFloat cpx, CGFloat cpy, CGFloat x, CGFloat y)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//关闭路径
+CG_EXTERN void CGContextClosePath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Path construction convenience functions. **/
+
+//画矩形
+CG_EXTERN void CGContextAddRect(CGContextRef cg_nullable c, CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画矩形数组（多个矩形）
+CG_EXTERN void CGContextAddRects(CGContextRef cg_nullable c,
+const CGRect * __nullable rects, size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画线条数组（多个线条）
+CG_EXTERN void CGContextAddLines(CGContextRef cg_nullable c,
+const CGPoint * __nullable points, size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画椭圆
+CG_EXTERN void CGContextAddEllipseInRect(CGContextRef cg_nullable c, CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//画圆弧 圆心，半径，开始角度，结束角度，是否顺时针
+CG_EXTERN void CGContextAddArc(CGContextRef cg_nullable c, CGFloat x, CGFloat y,
+CGFloat radius, CGFloat startAngle, CGFloat endAngle, int clockwise)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//画圆弧 两点和半径
+CG_EXTERN void CGContextAddArcToPoint(CGContextRef cg_nullable c,
+CGFloat x1, CGFloat y1, CGFloat x2, CGFloat y2, CGFloat radius)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//添加路径CGPath
+CG_EXTERN void CGContextAddPath(CGContextRef cg_nullable c,
+CGPathRef cg_nullable path)
+CG_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+
+/** Path stroking. **/
+
+//将参数CGContextRef的路径直接画在当前上下文上
+CG_EXTERN void CGContextReplacePathWithStrokedPath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/** Path information functions. **/
+
+//判断路径是否为空，目前的路径是否包含任何的子路径
+CG_EXTERN bool CGContextIsPathEmpty(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//返回一个非空的路径中的当前点
+CG_EXTERN CGPoint CGContextGetPathCurrentPoint(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//返回包含当前路径的最小矩形
+CG_EXTERN CGRect CGContextGetPathBoundingBox(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//拷贝路径
+CG_EXTERN CGPathRef __nullable CGContextCopyPath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+
+//路径中是否包含某个点
+CG_EXTERN bool CGContextPathContainsPoint(CGContextRef cg_nullable c,
+CGPoint point, CGPathDrawingMode mode)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/** Path drawing functions. **/
+
+//指定绘制的模式，枚举
+CG_EXTERN void CGContextDrawPath(CGContextRef cg_nullable c,
+CGPathDrawingMode mode)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Path drawing convenience functions. **/
+
+//填充路径包围的区域
+CG_EXTERN void CGContextFillPath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//使用奇偶规则填充区域
+CG_EXTERN void CGContextEOFillPath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//绘制路径
+CG_EXTERN void CGContextStrokePath(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//填充矩形区域 rect参数
+CG_EXTERN void CGContextFillRect(CGContextRef cg_nullable c, CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//填充多个区域
+CG_EXTERN void CGContextFillRects(CGContextRef cg_nullable c,
+const CGRect * __nullable rects, size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//绘制矩形框
+CG_EXTERN void CGContextStrokeRect(CGContextRef cg_nullable c, CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//指定线宽绘制矩形框
+CG_EXTERN void CGContextStrokeRectWithWidth(CGContextRef cg_nullable c,
+CGRect rect, CGFloat width)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//擦除绘制的图形
+CG_EXTERN void CGContextClearRect(CGContextRef cg_nullable c, CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//填充矩形内切圆
+CG_EXTERN void CGContextFillEllipseInRect(CGContextRef cg_nullable c,
+CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//绘制矩形内切圆
+CG_EXTERN void CGContextStrokeEllipseInRect(CGContextRef cg_nullable c,
+CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/*绘制多条线段，2N个CGPoint数组，1，2组成线段 以此类推
+CGContextBeginPath(context);
+for (k = 0; k < count; k += 2) {
+CGContextMoveToPoint(context, s[k].x, s[k].y);
+CGContextAddLineToPoint(context, s[k+1].x, s[k+1].y);
+}
+CGContextStrokePath(context); */
+
+CG_EXTERN void CGContextStrokeLineSegments(CGContextRef cg_nullable c,
+const CGPoint * __nullable points, size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/** Clipping functions. **/
+
+//修改当前剪切路径，使用非零规则
+CG_EXTERN void CGContextClip(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//修改当前剪切路径，使用奇偶规则
+CG_EXTERN void CGContextEOClip(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//默认值剪切路径
+CG_EXTERN void CGContextResetClip(CGContextRef c);
+
+//剪切遮罩处理（针对图片）
+CG_EXTERN void CGContextClipToMask(CGContextRef cg_nullable c, CGRect rect,
+CGImageRef cg_nullable mask)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//获取需要绘制的图形上下文位置和大小
+CG_EXTERN CGRect CGContextGetClipBoundingBox(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+/** Clipping convenience functions. **/
+
+//剪切指定矩形区域，将路径置空
+CG_EXTERN void CGContextClipToRect(CGContextRef cg_nullable c, CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//剪切多个矩形区域，路径置空
+CG_EXTERN void CGContextClipToRects(CGContextRef cg_nullable c,
+const CGRect *  rects, size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Primitive color functions. **/
+
+//填充指定颜色
+CG_EXTERN void CGContextSetFillColorWithColor(CGContextRef cg_nullable c,
+CGColorRef cg_nullable color)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+//设置线条指定颜色
+CG_EXTERN void CGContextSetStrokeColorWithColor(CGContextRef cg_nullable c,
+CGColorRef cg_nullable color)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+/** Color space functions. **/
+
+//颜色空间填充
+CG_EXTERN void CGContextSetFillColorSpace(CGContextRef cg_nullable c,
+CGColorSpaceRef cg_nullable space)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置线框颜色空间
+CG_EXTERN void CGContextSetStrokeColorSpace(CGContextRef cg_nullable c,
+CGColorSpaceRef cg_nullable space)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Color functions. **/
+
+//设置填充颜色空间
+CG_EXTERN void CGContextSetFillColor(CGContextRef cg_nullable c,
+const CGFloat * cg_nullable components)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置画笔颜色
+CG_EXTERN void CGContextSetStrokeColor(CGContextRef cg_nullable c,
+const CGFloat * cg_nullable components)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Pattern functions. **/
+
+//设置位图填充
+CG_EXTERN void CGContextSetFillPattern(CGContextRef cg_nullable c,
+CGPatternRef cg_nullable pattern, const CGFloat * cg_nullable components)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//位图绘制线条和边框
+CG_EXTERN void CGContextSetStrokePattern(CGContextRef cg_nullable c,
+CGPatternRef cg_nullable pattern, const CGFloat * cg_nullable components)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置该c采用位图填充的相位
+CG_EXTERN void CGContextSetPatternPhase(CGContextRef cg_nullable c, CGSize phase)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Color convenience functions. **/
+
+//设置c的填充颜色为灰色 灰度和透明度
+CG_EXTERN void CGContextSetGrayFillColor(CGContextRef cg_nullable c,
+CGFloat gray, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的线条颜色为灰色 灰度和透明度
+CG_EXTERN void CGContextSetGrayStrokeColor(CGContextRef cg_nullable c,
+CGFloat gray, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的填充色 使用RGB颜色模块
+CG_EXTERN void CGContextSetRGBFillColor(CGContextRef cg_nullable c, CGFloat red,
+CGFloat green, CGFloat blue, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的线条颜色 使用RGB颜色模块
+CG_EXTERN void CGContextSetRGBStrokeColor(CGContextRef cg_nullable c,
+CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的填充颜色 使用CMYK颜色模块
+CG_EXTERN void CGContextSetCMYKFillColor(CGContextRef cg_nullable c,
+CGFloat cyan, CGFloat magenta, CGFloat yellow, CGFloat black, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的线条颜色 使用CMYK颜色模块
+CG_EXTERN void CGContextSetCMYKStrokeColor(CGContextRef cg_nullable c,
+CGFloat cyan, CGFloat magenta, CGFloat yellow, CGFloat black, CGFloat alpha)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Rendering intent. **/
+
+/*设置当前图形状态的渲染意向
+typedef CF_ENUM (int32_t, CGColorRenderingIntent) {
+kCGRenderingIntentDefault,
+kCGRenderingIntentAbsoluteColorimetric, //绝对色阶匹配
+kCGRenderingIntentRelativeColorimetric, //相对色阶匹配
+kCGRenderingIntentPerceptual,   //视觉匹配，不同设备视觉一致
+kCGRenderingIntentSaturation    //饱和度匹配
+};*/
+CG_EXTERN void CGContextSetRenderingIntent(CGContextRef cg_nullable c,
+CGColorRenderingIntent intent)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Image functions. **/
+
+//绘制图形到c
+CG_EXTERN void CGContextDrawImage(CGContextRef cg_nullable c, CGRect rect,
+CGImageRef cg_nullable image)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//重复绘制的图形，填充当前区域
+CG_EXTERN void CGContextDrawTiledImage(CGContextRef cg_nullable c, CGRect rect,
+CGImageRef cg_nullable image)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//获取c在放大图片时的插值质量
+CG_EXTERN CGInterpolationQuality
+CGContextGetInterpolationQuality(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的插值质量水平
+CG_EXTERN void CGContextSetInterpolationQuality(CGContextRef cg_nullable c,
+CGInterpolationQuality quality)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Shadow support. **/
+
+//设置阴影在X、Y方向上的偏移。模糊度、阴影颜色
+CG_EXTERN void CGContextSetShadowWithColor(CGContextRef cg_nullable c,
+CGSize offset, CGFloat blur, CGColorRef __nullable color)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+//设置阴影在X、Y方向上的偏移。模糊度（数字越大越模糊）、阴影颜色默认为1/3透明黑
+CG_EXTERN void CGContextSetShadow(CGContextRef cg_nullable c, CGSize offset,
+CGFloat blur)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+/** Gradient and shading functions. **/
+
+//设置一个线性渐变填充 开始点和结束点
+CG_EXTERN void CGContextDrawLinearGradient(CGContextRef cg_nullable c,
+CGGradientRef cg_nullable gradient, CGPoint startPoint, CGPoint endPoint,
+CGGradientDrawingOptions options)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//设置一个圆形渐变填充 开始点和结束点
+CG_EXTERN void CGContextDrawRadialGradient(CGContextRef cg_nullable c,
+CGGradientRef cg_nullable gradient, CGPoint startCenter, CGFloat startRadius,
+CGPoint endCenter, CGFloat endRadius, CGGradientDrawingOptions options)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//填充剪切路径 用指定的阴影背景
+CG_EXTERN void CGContextDrawShading(CGContextRef cg_nullable c,
+cg_nullable CGShadingRef shading)
+CG_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+
+/** Text functions. **/
+
+//设置当前字符间距
+CG_EXTERN void CGContextSetCharacterSpacing(CGContextRef cg_nullable c,
+CGFloat spacing)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置绘制文本的位置
+CG_EXTERN void CGContextSetTextPosition(CGContextRef cg_nullable c,
+CGFloat x, CGFloat y)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//返回正在绘制文本的位置
+CG_EXTERN CGPoint CGContextGetTextPosition(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置当前文本矩阵
+CG_EXTERN void CGContextSetTextMatrix(CGContextRef cg_nullable c,
+CGAffineTransform t)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//返回c矩阵
+CG_EXTERN CGAffineTransform CGContextGetTextMatrix(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的绘图模式
+CG_EXTERN void CGContextSetTextDrawingMode(CGContextRef cg_nullable c,
+CGTextDrawingMode mode)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的字体
+CG_EXTERN void CGContextSetFont(CGContextRef cg_nullable c,
+CGFontRef cg_nullable font)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c的字体大小
+CG_EXTERN void CGContextSetFontSize(CGContextRef cg_nullable c, CGFloat size)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//在提供的位置绘制字形
+CG_EXTERN void CGContextShowGlyphsAtPositions(CGContextRef cg_nullable c,
+const CGGlyph * cg_nullable glyphs, const CGPoint * cg_nullable Lpositions,
+size_t count)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+/** PDF functions. **/
+
+//绘制一个PDF页面
+CG_EXTERN void CGContextDrawPDFPage(CGContextRef cg_nullable c,
+CGPDFPageRef cg_nullable page)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+/** Output page functions. **/
+
+/* Begin a new page. */
+
+CG_EXTERN void CGContextBeginPage(CGContextRef cg_nullable c,
+const CGRect * __nullable mediaBox)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/* End the current page. */
+
+CG_EXTERN void CGContextEndPage(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Context functions. **/
+
+//c的引用计数+1
+CG_EXTERN CGContextRef cg_nullable CGContextRetain(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//c的引用计数-1
+CG_EXTERN void CGContextRelease(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//强制所有绘图操作立即渲染
+CG_EXTERN void CGContextFlush(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//同步内容
+CG_EXTERN void CGContextSynchronize(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+/** Antialiasing functions. **/
+//字体平滑，反锯齿,和次像素渲染
+//设置c是否抗锯齿
+CG_EXTERN void CGContextSetShouldAntialias(CGContextRef cg_nullable c,
+bool shouldAntialias)
+CG_AVAILABLE_STARTING(__MAC_10_0, __IPHONE_2_0);
+
+//设置c是否允许抗锯齿
+CG_EXTERN void CGContextSetAllowsAntialiasing(CGContextRef cg_nullable c,
+bool allowsAntialiasing)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/** Font display functions. **/
+
+//设置c是否光滑字体
+CG_EXTERN void CGContextSetShouldSmoothFonts(CGContextRef cg_nullable c,
+bool shouldSmoothFonts)
+CG_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+
+//设置c是否允许光滑字体
+CG_EXTERN void CGContextSetAllowsFontSmoothing(CGContextRef cg_nullable c,
+bool allowsFontSmoothing)
+CG_AVAILABLE_STARTING(__MAC_10_2, __IPHONE_2_0);
+
+//设置c是否次像素渲染字体
+CG_EXTERN void CGContextSetShouldSubpixelPositionFonts(
+CGContextRef cg_nullable c, bool shouldSubpixelPositionFonts)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//设置c是否次允许像素渲染字体
+CG_EXTERN void CGContextSetAllowsFontSubpixelPositioning(
+CGContextRef cg_nullable c, bool allowsFontSubpixelPositioning)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//设置c是否次像素量化字体
+CG_EXTERN void CGContextSetShouldSubpixelQuantizeFonts(
+CGContextRef cg_nullable c, bool shouldSubpixelQuantizeFonts)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//设置c是否允许次像素量化字体
+CG_EXTERN void CGContextSetAllowsFontSubpixelQuantization(
+CGContextRef cg_nullable c, bool allowsFontSubpixelQuantization)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+/* Transparency layer support.
+在透明层中绘制需要三步：
+1.  调用函数 CGContextBeginTransparencyLayer
+2.  在透明层中绘制需要组合的对象
+3.  调用函数 CGContextEndTransparencyLayer
+*/
+
+//开始一个透明层
+CG_EXTERN void CGContextBeginTransparencyLayer(CGContextRef cg_nullable c,
+CFDictionaryRef __nullable auxiliaryInfo)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+//开始透明度层 知道矩形边界
+CG_EXTERN void CGContextBeginTransparencyLayerWithRect(
+CGContextRef cg_nullable c, CGRect rect, CFDictionaryRef __nullable auxInfo)
+CG_AVAILABLE_STARTING(__MAC_10_5, __IPHONE_2_0);
+
+//结束一个透明层
+CG_EXTERN void CGContextEndTransparencyLayer(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_3, __IPHONE_2_0);
+
+/** User space to device space tranformations.
+用户空间和设备空间的变换
+**/
+
+//获取c的仿射变换
+CG_EXTERN CGAffineTransform
+CGContextGetUserSpaceToDeviceSpaceTransform(CGContextRef cg_nullable c)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//将point从 用户空间 变换到 设备空间
+CG_EXTERN CGPoint CGContextConvertPointToDeviceSpace(CGContextRef cg_nullable c,
+CGPoint point)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//将point从 设备空间 变换到 用户空间
+CG_EXTERN CGPoint CGContextConvertPointToUserSpace(CGContextRef cg_nullable c,
+CGPoint point)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//将size从 用户空间 变换到 设备空间
+CG_EXTERN CGSize CGContextConvertSizeToDeviceSpace(CGContextRef cg_nullable c,
+CGSize size)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//将size从 设备空间 变换到 用户空间
+CG_EXTERN CGSize CGContextConvertSizeToUserSpace(CGContextRef cg_nullable c,
+CGSize size)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//将rect从 用户空间 变换到 设备空间
+CG_EXTERN CGRect CGContextConvertRectToDeviceSpace(CGContextRef cg_nullable c,
+CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+//将rect从 设备空间 变换到 用户空间
+CG_EXTERN CGRect CGContextConvertRectToUserSpace(CGContextRef cg_nullable c,
+CGRect rect)
+CG_AVAILABLE_STARTING(__MAC_10_4, __IPHONE_2_0);
+
+/** Deprecated functions. **/
+
+//设置c的字体和字体大小
+CG_EXTERN void CGContextSelectFont(CGContextRef cg_nullable c,
+const char * cg_nullable name, CGFloat size, CGTextEncoding textEncoding)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_9,
+__IPHONE_2_0, __IPHONE_7_0);
+
+//由目前的文本矩阵指定的点显示一个字符数组
+CG_EXTERN void CGContextShowText(CGContextRef cg_nullable c,
+const char * cg_nullable string, size_t length)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_9,
+__IPHONE_2_0, __IPHONE_7_0);
+
+//在指定的位置显示一个字符串
+CG_EXTERN void CGContextShowTextAtPoint(CGContextRef cg_nullable c,
+CGFloat x, CGFloat y, const char * cg_nullable string, size_t length)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_9,
+__IPHONE_2_0, __IPHONE_7_0);
+
+//显示一个数组的字形
+CG_EXTERN void CGContextShowGlyphs(CGContextRef cg_nullable c,
+const CGGlyph * __nullable g, size_t count)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_9,
+__IPHONE_2_0, __IPHONE_7_0);
+
+//在指定位置显示一个数组的字形
+CG_EXTERN void CGContextShowGlyphsAtPoint(CGContextRef cg_nullable c, CGFloat x,
+CGFloat y, const CGGlyph * __nullable glyphs, size_t count)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_9,
+__IPHONE_2_0, __IPHONE_7_0);
+
+//绘制具有不同偏移量的一个数组
+CG_EXTERN void CGContextShowGlyphsWithAdvances(CGContextRef cg_nullable c,
+const CGGlyph * __nullable glyphs, const CGSize * __nullable advances,
+size_t count)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_3, __MAC_10_9,
+__IPHONE_2_0, __IPHONE_7_0);
+
+//使用CGPDFDocumentRef绘制PDF
+CG_EXTERN void CGContextDrawPDFDocument(CGContextRef cg_nullable c, CGRect rect,
+CGPDFDocumentRef cg_nullable document, int page)
+CG_AVAILABLE_BUT_DEPRECATED(__MAC_10_0, __MAC_10_5,
+__IPHONE_NA, __IPHONE_NA);
+
+CF_ASSUME_NONNULL_END
+
+CF_IMPLICIT_BRIDGING_DISABLED
+
+#endif /* CGCONTEXT_H_ */

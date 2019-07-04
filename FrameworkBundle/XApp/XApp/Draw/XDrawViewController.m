@@ -1,73 +1,115 @@
 //
-//  ViewController.m
+//  XDrawViewController.m
 //  XApp
 //
-//  Created by vivi wu on 2019/6/24.
+//  Created by vivi wu on 2019/6/28.
 //  Copyright © 2019 vivi wu. All rights reserved.
 //
-
-#import "ViewController.h"
-#import "XDrawView.h"
-#include <math.h>
 #import <Photos/Photos.h>
+#import <QuartzCore/QuartzCore.h>
 
-#if TARGET_FLAG         /*1*/
-    #import <DynamicXKit/DynamicXKit.h>
-#else
-    #import <XKit/XKit.h>
-#endif
+#import "XDrawViewController.h"
+#import "XUnitWordView.h"
+#import "XBezierDrawView.h"
+#import "XCoreGraphicsDrawView.h"
 
+@interface XDrawViewController ()
 
-@interface ViewController ()
-@property (strong, nonatomic) XDrawView *drawView;
-@property (strong, nonatomic) XCaptchaView * captchaView;
-
-@property (strong, nonatomic) UIImage * image;
+@property (strong, nonatomic) UIView* drawView;
 @property (strong, nonatomic) PHAssetCollection * createCollection;
+
+@property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, strong) CALayer       *greenLayer;
+@property (nonatomic, strong) CAShapeLayer  *redLayer;
+
 @end
+static CGFloat count;
 
-@implementation ViewController
+@implementation XDrawViewController
 
-//CSCOblue 0.05, 0.35, 0.65
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.feature;
     NSLog(@"TARGET_FLAG == %d", TARGET_FLAG);
-    //Dynamic Library
-    //Static Library
-    //Setting >Other Linker Flags> -ObjC
     
-    _drawView = [[XDrawView alloc]initWithFrame:CGRectMake(0, 100, kScreenW, kScreenW)];
-    _drawView.backgroundColor = [UIColor colorWithRed:0.05 green:0.40 blue:0.70 alpha:0.99];
-    [self.view addSubview:_drawView];
+    if ([self.feature isEqualToString:@"UIBezierPath"]) {
+        _drawView = [[XBezierDrawView alloc]initWithFrame: CGRectMake(0, 100, kScreenW, kScreenW)];
+        _drawView.backgroundColor = [UIColor colorWithRed:0.05 green:0.40 blue:0.70 alpha:0.99];
+    }else if ([self.feature isEqualToString:@"CGContext"]){
+        _drawView = [[XCoreGraphicsDrawView alloc]initWithFrame: CGRectMake(0, 100, kScreenW, kScreenH-100)];
+        _drawView.backgroundColor = UIColor.whiteColor;
+    }else if ([self.feature isEqualToString:@"UnitWord"]){
+        _drawView = [[XUnitWordView alloc]initWithFrame: CGRectMake(0, 100, kScreenW, kScreenH-100)];
+        _drawView.backgroundColor = UIColor.blackColor;
+    }else{
+        /**CAShapeLayer+UIBezierPath
+        CAShapeLayer *shapeLayer = ({
+            CGRect rect = CGRectMake(0, 0, kScreenW/2, kScreenW/2);
+            UIBezierPath * bezierOvalPath = [UIBezierPath bezierPathWithOvalInRect: rect];
+            CAShapeLayer *circle = [CAShapeLayer layer];
+            circle.bounds        = rect;
+            circle.position      = self.view.center;
+            circle.path          = bezierOvalPath.CGPath;
+            circle.strokeColor   = [UIColor redColor].CGColor;
+            
+            circle.fillColor     = [UIColor yellowColor].CGColor;
+            circle.lineWidth     = 10;          //设置线宽
+            circle.lineCap       = @"round";    //设置线头形状
+            circle.strokeStart     = 0.25;
+            circle.strokeEnd     = 0.75;        //设置轮廓结束位置
+            
+            circle;
+        });
+        [self.view.layer addSublayer:shapeLayer];
+         **/
+        count = 10;
+        self.greenLayer = ({
+            
+            CALayer *layer        = [CALayer layer];
+            layer.bounds          = CGRectMake(0, 0, 200, 45);
+            layer.position        = self.view.center;
+            layer.backgroundColor = [UIColor greenColor].CGColor;
+            
+            layer;
+        });
+        
+        self.redLayer = ({
+            
+            CAShapeLayer *layer   = [CAShapeLayer layer];
+            layer.bounds          = CGRectMake(0, 0, 200, 45);
+            layer.position        = self.view.center;
+            layer.path            = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, count / 6 * 2, 45)].CGPath;
+            layer.fillColor       = [UIColor redColor].CGColor;
+            layer.fillRule        = kCAFillRuleEvenOdd;
+            
+            layer;
+        });
+        
+        [self.view.layer addSublayer:self.greenLayer];
+        [self.view.layer addSublayer:self.redLayer];
+        
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(action)];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    }
     
-    XGridView * grid = [[XGridView alloc]initWithFrame: CGRectMake(10, 500, 150, 200)];
-    grid.imageView.image = [NSBundle xImageNamed:@"photos"];
-    grid.titleLabel.text = @"XGridView";
-    grid.rightSubLabel.text = @"right";
-    grid.leftSubLabel.text = @"left";
-    [self.view addSubview:grid];
-  
-  _captchaView = [[XCaptchaView alloc]initWithFrame:CGRectMake(200, 500, 100, 40)];
-  [self.view addSubview:_captchaView];
-  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
-  [_captchaView addGestureRecognizer:tap];
+    if(_drawView) [self.view addSubview:_drawView];
+    
     // Do any additional setup after loading the view.
-  
-  UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(200, 600, 100, 100)];
-//  imgV.image = UIImage im
-  [self.view addSubview:imgV];
 }
 
-- (void)tapClick:(UITapGestureRecognizer*)tap{
-  [_captchaView changeCaptcha];
-  NSLog(@"captcha == %@", _captchaView.captcha);
+- (void)action {
+    count ++;
+    self.redLayer.path = [UIBezierPath bezierPathWithRect:CGRectMake(0, 0, count / 6 * 2, 45)].CGPath;
+    
+    if (count > 60 * 10 -1) {
+        [self.displayLink invalidate];
+    }
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    _drawView.redo = YES;
-    [_drawView setNeedsDisplay];
+    [super viewWillDisappear:animated];
+    if(self.displayLink) [self.displayLink invalidate];
 }
 
 - (IBAction)generateImageToSave:(id)sender {
@@ -76,6 +118,16 @@
     
     UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 #pragma mark -- <保存到相册>
 -(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
@@ -176,4 +228,5 @@
 - (UIImage *)image{
     return _drawView.generateImageFromCurrentContext;
 }
+
 @end
