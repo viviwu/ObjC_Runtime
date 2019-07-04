@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D61CFE922C309F000FB5281 /* XDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61CFE822C309F000FB5281 /* XDrawView.m */; };
-		0D61CFEA22C309F000FB5281 /* XDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61CFE822C309F000FB5281 /* XDrawView.m */; };
+		0D61D04422C597B300FB5281 /* XiOSFeaturesTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61D04322C597B300FB5281 /* XiOSFeaturesTableVC.m */; };
+		0D61D04A22C59CD900FB5281 /* XDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D61D04922C59CD900FB5281 /* XDrawViewController.m */; };
 		0DB7ED7C22C067A9004466D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED7B22C067A9004466D6 /* AppDelegate.m */; };
-		0DB7ED7F22C067A9004466D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED7E22C067A9004466D6 /* ViewController.m */; };
 		0DB7ED8222C067A9004466D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8022C067A9004466D6 /* Main.storyboard */; };
 		0DB7ED8522C067A9004466D6 /* XApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8322C067A9004466D6 /* XApp.xcdatamodeld */; };
 		0DB7ED8722C067AA004466D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8622C067AA004466D6 /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 		0DB7ED8D22C067AA004466D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8C22C067AA004466D6 /* main.m */; };
 		0DB7ED9722C067AA004466D6 /* XAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED9622C067AA004466D6 /* XAppTests.m */; };
 		0DB7EDA222C067AA004466D6 /* XAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7EDA122C067AA004466D6 /* XAppUITests.m */; };
-		0DB7EDBD22C06BC5004466D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED7E22C067A9004466D6 /* ViewController.m */; };
 		0DB7EDBE22C06BC5004466D6 /* XApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8322C067A9004466D6 /* XApp.xcdatamodeld */; };
 		0DB7EDBF22C06BC5004466D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED8C22C067AA004466D6 /* main.m */; };
 		0DB7EDC022C06BC5004466D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DB7ED7B22C067A9004466D6 /* AppDelegate.m */; };
@@ -34,6 +32,14 @@
 		0DB7EE6B22C0C9BE004466D6 /* XKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DB7EE6822C0C9B3004466D6 /* XKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0DB7EE8A22C1A690004466D6 /* XBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE8922C1A690004466D6 /* XBundle.bundle */; };
 		0DB7EE8C22C1ABBA004466D6 /* XGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0DB7EE8B22C1ABBA004466D6 /* XGridView.xib */; };
+		0DF6F37822C5B0F000F515EC /* XUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F37722C5B0F000F515EC /* XUIViewController.m */; };
+		0DF6F37B22C5B10300F515EC /* XUITableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F37A22C5B10300F515EC /* XUITableViewController.m */; };
+		0DF6F37F22C5B29E00F515EC /* XBezierDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F37E22C5B29E00F515EC /* XBezierDrawView.m */; };
+		0DF6F38222C5B3B300F515EC /* XCoreGraphicsDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F38122C5B3B300F515EC /* XCoreGraphicsDrawView.m */; };
+		0DF6F38522C5B41A00F515EC /* XUnitWordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F38422C5B41A00F515EC /* XUnitWordView.m */; };
+		0DF6F38922C5B96800F515EC /* XUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F38822C5B96800F515EC /* XUIView.m */; };
+		0DF6F38C22C5BF1A00F515EC /* XHomebrewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DF6F38B22C5BF1A00F515EC /* XHomebrewViewController.m */; };
+		0DF6F38F22C5C79E00F515EC /* CoreGraphicsQuartz2D in Resources */ = {isa = PBXBuildFile; fileRef = 0DF6F38E22C5C79E00F515EC /* CoreGraphicsQuartz2D */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,14 +106,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0D61CFE722C309EF00FB5281 /* XDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XDrawView.h; sourceTree = "<group>"; };
-		0D61CFE822C309F000FB5281 /* XDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDrawView.m; sourceTree = "<group>"; };
 		0D61D03422C3623400FB5281 /* XKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XKit.xcodeproj; path = ../XKit/XKit.xcodeproj; sourceTree = "<group>"; };
+		0D61D04222C597B300FB5281 /* XiOSFeaturesTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XiOSFeaturesTableVC.h; sourceTree = "<group>"; };
+		0D61D04322C597B300FB5281 /* XiOSFeaturesTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XiOSFeaturesTableVC.m; sourceTree = "<group>"; };
+		0D61D04822C59CD900FB5281 /* XDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XDrawViewController.h; sourceTree = "<group>"; };
+		0D61D04922C59CD900FB5281 /* XDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XDrawViewController.m; sourceTree = "<group>"; };
 		0DB7ED7722C067A9004466D6 /* XApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DB7ED7A22C067A9004466D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DB7ED7B22C067A9004466D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0DB7ED7D22C067A9004466D6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0DB7ED7E22C067A9004466D6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0DB7ED8122C067A9004466D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DB7ED8422C067A9004466D6 /* XApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = XApp.xcdatamodel; sourceTree = "<group>"; };
 		0DB7ED8622C067AA004466D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +134,22 @@
 		0DB7EE6822C0C9B3004466D6 /* XKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XKit.framework; path = ../buildProducts/Static/XKit.framework; sourceTree = "<group>"; };
 		0DB7EE8922C1A690004466D6 /* XBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = XBundle.bundle; path = ../buildProducts/Static/XBundle.bundle; sourceTree = "<group>"; };
 		0DB7EE8B22C1ABBA004466D6 /* XGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XGridView.xib; sourceTree = "<group>"; };
+		0DF6F36C22C5AE5D00F515EC /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		0DF6F37622C5B0F000F515EC /* XUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XUIViewController.h; sourceTree = "<group>"; };
+		0DF6F37722C5B0F000F515EC /* XUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XUIViewController.m; sourceTree = "<group>"; };
+		0DF6F37922C5B10300F515EC /* XUITableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XUITableViewController.h; sourceTree = "<group>"; };
+		0DF6F37A22C5B10300F515EC /* XUITableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XUITableViewController.m; sourceTree = "<group>"; };
+		0DF6F37D22C5B29E00F515EC /* XBezierDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBezierDrawView.h; sourceTree = "<group>"; };
+		0DF6F37E22C5B29E00F515EC /* XBezierDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBezierDrawView.m; sourceTree = "<group>"; };
+		0DF6F38022C5B3B300F515EC /* XCoreGraphicsDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XCoreGraphicsDrawView.h; sourceTree = "<group>"; };
+		0DF6F38122C5B3B300F515EC /* XCoreGraphicsDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XCoreGraphicsDrawView.m; sourceTree = "<group>"; };
+		0DF6F38322C5B41A00F515EC /* XUnitWordView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XUnitWordView.h; sourceTree = "<group>"; };
+		0DF6F38422C5B41A00F515EC /* XUnitWordView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XUnitWordView.m; sourceTree = "<group>"; };
+		0DF6F38722C5B96800F515EC /* XUIView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XUIView.h; sourceTree = "<group>"; };
+		0DF6F38822C5B96800F515EC /* XUIView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XUIView.m; sourceTree = "<group>"; };
+		0DF6F38A22C5BF1A00F515EC /* XHomebrewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XHomebrewViewController.h; sourceTree = "<group>"; };
+		0DF6F38B22C5BF1A00F515EC /* XHomebrewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XHomebrewViewController.m; sourceTree = "<group>"; };
+		0DF6F38E22C5C79E00F515EC /* CoreGraphicsQuartz2D */ = {isa = PBXFileReference; lastKnownFileType = text; path = CoreGraphicsQuartz2D; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,10 +224,12 @@
 			children = (
 				0DB7ED7A22C067A9004466D6 /* AppDelegate.h */,
 				0DB7ED7B22C067A9004466D6 /* AppDelegate.m */,
-				0DB7ED7D22C067A9004466D6 /* ViewController.h */,
-				0DB7ED7E22C067A9004466D6 /* ViewController.m */,
-				0D61CFE722C309EF00FB5281 /* XDrawView.h */,
-				0D61CFE822C309F000FB5281 /* XDrawView.m */,
+				0DF6F36C22C5AE5D00F515EC /* PrefixHeader.pch */,
+				0DF6F37C22C5B12D00F515EC /* UIBase */,
+				0D61D04222C597B300FB5281 /* XiOSFeaturesTableVC.h */,
+				0D61D04322C597B300FB5281 /* XiOSFeaturesTableVC.m */,
+				0DF6F38D22C5C00100F515EC /* HomebrewView */,
+				0DF6F38622C5B45100F515EC /* Draw */,
 				0DB7ED8022C067A9004466D6 /* Main.storyboard */,
 				0DB7ED8622C067AA004466D6 /* Assets.xcassets */,
 				0DB7ED8822C067AA004466D6 /* LaunchScreen.storyboard */,
@@ -254,6 +278,44 @@
 				0DB7EE3122C0B2C2004466D6 /* photos@2x.png */,
 			);
 			path = XAppD;
+			sourceTree = "<group>";
+		};
+		0DF6F37C22C5B12D00F515EC /* UIBase */ = {
+			isa = PBXGroup;
+			children = (
+				0DF6F38722C5B96800F515EC /* XUIView.h */,
+				0DF6F38822C5B96800F515EC /* XUIView.m */,
+				0DF6F37622C5B0F000F515EC /* XUIViewController.h */,
+				0DF6F37722C5B0F000F515EC /* XUIViewController.m */,
+				0DF6F37922C5B10300F515EC /* XUITableViewController.h */,
+				0DF6F37A22C5B10300F515EC /* XUITableViewController.m */,
+			);
+			path = UIBase;
+			sourceTree = "<group>";
+		};
+		0DF6F38622C5B45100F515EC /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				0D61D04822C59CD900FB5281 /* XDrawViewController.h */,
+				0D61D04922C59CD900FB5281 /* XDrawViewController.m */,
+				0DF6F38322C5B41A00F515EC /* XUnitWordView.h */,
+				0DF6F38422C5B41A00F515EC /* XUnitWordView.m */,
+				0DF6F37D22C5B29E00F515EC /* XBezierDrawView.h */,
+				0DF6F37E22C5B29E00F515EC /* XBezierDrawView.m */,
+				0DF6F38022C5B3B300F515EC /* XCoreGraphicsDrawView.h */,
+				0DF6F38122C5B3B300F515EC /* XCoreGraphicsDrawView.m */,
+				0DF6F38E22C5C79E00F515EC /* CoreGraphicsQuartz2D */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		0DF6F38D22C5C00100F515EC /* HomebrewView */ = {
+			isa = PBXGroup;
+			children = (
+				0DF6F38A22C5BF1A00F515EC /* XHomebrewViewController.h */,
+				0DF6F38B22C5BF1A00F515EC /* XHomebrewViewController.m */,
+			);
+			path = HomebrewView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +476,7 @@
 				0DB7ED8A22C067AA004466D6 /* LaunchScreen.storyboard in Resources */,
 				0DB7ED8722C067AA004466D6 /* Assets.xcassets in Resources */,
 				0DB7ED8222C067A9004466D6 /* Main.storyboard in Resources */,
+				0DF6F38F22C5C79E00F515EC /* CoreGraphicsQuartz2D in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,11 +515,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB7ED7F22C067A9004466D6 /* ViewController.m in Sources */,
 				0DB7ED8522C067A9004466D6 /* XApp.xcdatamodeld in Sources */,
+				0DF6F38922C5B96800F515EC /* XUIView.m in Sources */,
+				0DF6F38C22C5BF1A00F515EC /* XHomebrewViewController.m in Sources */,
 				0DB7ED8D22C067AA004466D6 /* main.m in Sources */,
+				0DF6F37B22C5B10300F515EC /* XUITableViewController.m in Sources */,
+				0DF6F38222C5B3B300F515EC /* XCoreGraphicsDrawView.m in Sources */,
+				0DF6F38522C5B41A00F515EC /* XUnitWordView.m in Sources */,
+				0DF6F37F22C5B29E00F515EC /* XBezierDrawView.m in Sources */,
 				0DB7ED7C22C067A9004466D6 /* AppDelegate.m in Sources */,
-				0D61CFE922C309F000FB5281 /* XDrawView.m in Sources */,
+				0D61D04422C597B300FB5281 /* XiOSFeaturesTableVC.m in Sources */,
+				0D61D04A22C59CD900FB5281 /* XDrawViewController.m in Sources */,
+				0DF6F37822C5B0F000F515EC /* XUIViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,11 +550,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DB7EDBD22C06BC5004466D6 /* ViewController.m in Sources */,
 				0DB7EDBE22C06BC5004466D6 /* XApp.xcdatamodeld in Sources */,
 				0DB7EDBF22C06BC5004466D6 /* main.m in Sources */,
 				0DB7EDC022C06BC5004466D6 /* AppDelegate.m in Sources */,
-				0D61CFEA22C309F000FB5281 /* XDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +632,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = XApp/PrefixHeader.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -621,6 +691,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = XApp/PrefixHeader.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
