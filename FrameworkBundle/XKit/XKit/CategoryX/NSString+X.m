@@ -10,6 +10,10 @@
 
 @implementation NSString (X)
 
+- (const char*)cString{
+    return [self cStringUsingEncoding:NSUTF8StringEncoding];
+}
+
 - (NSArray<NSString*>*)tokenizerUnitWord
 {
   NSMutableArray * tokenizerUnitWord = [NSMutableArray array];
@@ -26,5 +30,7 @@
   }
   return tokenizerUnitWord;
 }
+
+
 
 @end

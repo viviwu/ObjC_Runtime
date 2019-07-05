@@ -13,7 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (X)
 
+- (const char*)cString;
+
 - (NSArray<NSString*>*)tokenizerUnitWord; //分词
+
 
 @end
 

@@ -142,11 +142,11 @@ UIBezierPath* MakeRangePathFromTimeAngles(CGFloat startAngle, CGFloat endAngle,C
     CGFloat sx = center.x + radius * cos(startAngle);
     CGFloat sy = center.y + radius * sin(startAngle);
     
-    CGFloat ex = center.x + radius * cos(endAngle);
-    CGFloat ey = center.y + radius * sin(endAngle);
+//    CGFloat ex = center.x + radius * cos(endAngle);
+//    CGFloat ey = center.y + radius * sin(endAngle);
     
     CGPoint startPoint = CGPointMake(sx, sy);
-    CGPoint endPoint = CGPointMake(ex, ey);
+//    CGPoint endPoint = CGPointMake(ex, ey);
     
     [path moveToPoint:center];
     [path addLineToPoint:startPoint];
@@ -447,9 +447,9 @@ UIBezierPath* PathOfGear(CGFloat teeth,CGFloat radius)
 
     // new loop logic
     
-    CGPoint nextPoint;
-    CGPoint lastInnerPoint;
-    CGPoint lastOuterPoint;
+    CGPoint nextPoint = CGPointZero;
+    CGPoint lastInnerPoint = CGPointZero;
+    CGPoint lastOuterPoint = CGPointZero;
     
     int checker = 0 ;
     
@@ -511,12 +511,10 @@ UIBezierPath* PathOfGear(CGFloat teeth,CGFloat radius)
 
 NSArray* AngleForLinesToMakeShapeOfPoints(CGFloat points,CGFloat size)
 {
-    CGFloat radius = size;
-    
-    CGSize circleSize = CGSizeMake(radius, radius);
-    
-    CGPoint center = CGPointMake(circleSize.width/2, circleSize.height/2);
-    CGFloat rad = radius;
+//    CGFloat radius = size;
+//    CGSize circleSize = CGSizeMake(radius, radius);
+//    CGPoint center = CGPointMake(circleSize.width/2, circleSize.height/2);
+//    CGFloat rad = radius;
     
     CGFloat step = 2 * M_PI / points;
     

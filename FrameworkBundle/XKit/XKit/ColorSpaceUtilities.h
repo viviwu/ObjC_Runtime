@@ -11,9 +11,9 @@
 */
 
 #undef MIN
-#define MIN(a,b)  ((a)>(b) ? (b) : (a))
+    #define MIN(a,b)  ((a)>(b) ? (b) : (a))
 #undef MAX
-#define MAX(a,b)  ((a)>(b) ? (a) : (b))
+    #define MAX(a,b)  ((a)>(b) ? (a) : (b))
 
 void HSL2RGB(float h, float s, float l, float* outR, float* outG, float* outB);
 void RGB2HSL(float r, float g, float b, float* outH, float* outS, float* outL);

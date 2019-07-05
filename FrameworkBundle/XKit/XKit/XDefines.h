@@ -15,8 +15,8 @@
 #define kScreenH  [UIScreen mainScreen].bounds.size.height
 
 #define kUserDef [NSUserDefaults standardUserDefaults]
-#define FUserDef_OBJ(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
-#define FUSerDef_BOOL(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
+#define UserDefObjForKey(key) [[NSUserDefaults standardUserDefaults] objectForKey:key]
+#define UserDefBoolForKey(key) [[NSUserDefaults standardUserDefaults] boolForKey:key]
 //+++++++++++++Compile Environment ++++++++++++++++++++++++++++++++++++++++
 
 #ifndef __OPTIMIZE__

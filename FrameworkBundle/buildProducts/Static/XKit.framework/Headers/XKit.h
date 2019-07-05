@@ -28,6 +28,8 @@ FOUNDATION_EXPORT const unsigned char XKitVersionString[];
 
 #import <XKit/UIColor+X.h>
 #import <XKit/UIImage+X.h>
+#import <XKit/NSData+X.h>
+#import <XKit/NSDate+X.h>
 
 #import <XKit/NSString+X.h> 
 #import <XKit/NSArray+X.h>
